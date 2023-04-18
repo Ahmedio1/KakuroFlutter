@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'composants/timer.dart';
 
 class PageDeJeu extends StatefulWidget {
   @override
@@ -8,12 +9,10 @@ class PageDeJeu extends StatefulWidget {
 class _PageDeJeuState extends State<PageDeJeu> {
   @override
   Widget build(BuildContext context) {
+    MyTimerApp timer = MyTimerApp();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kakuro'),
-      ),
-      body: const Center(
-        child: Text('Page de jeu'),
+        title: timer,
       ),
     );
   }

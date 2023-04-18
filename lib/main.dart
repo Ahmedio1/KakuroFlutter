@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'page de jeu/page_de_jeu.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  PageDeJeu myPageDeJeu = PageDeJeu();
 
   // This widget is the root of your application.
   @override
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: myPageDeJeu,
     );
   }
 }
