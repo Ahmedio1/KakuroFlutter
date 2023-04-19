@@ -28,7 +28,7 @@ class Case {
 
 // * Getters
   int getValeur() {
-    return this.valeur;
+    return valeur;
   }
 
   List<int> getInfos() {
