@@ -12,7 +12,13 @@ class _PageDeJeuState extends State<PageDeJeu> {
     MyTimerApp timer = MyTimerApp();
     return Scaffold(
       appBar: AppBar(
-        title: timer,
+        title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+          SizedBox(width: 100),
+          timer,
+          SizedBox(width: 100),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+        ]),
       ),
     );
   }
