@@ -29,6 +29,13 @@
             {
               "client_id": "596572487077-qd7u7bpvaabm44l9rri4eqc9m7ru6j6q.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "596572487077-i92uplhfb62meqj6t2ha19k09qd0s7ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kakuro"
+              }
             }
           ]
         }
