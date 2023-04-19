@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:kakuro/accueil/btn_regles.dart';
 
 import '../constants.dart';
-import 'btn_jouer.dart';
-import 'title_accueil.dart';
+import 'components/btn_jouer.dart';
+import 'components/btn_regles.dart';
+import 'components/title_accueil.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

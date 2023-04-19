@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'accueil/body.dart';
-import 'accueil/bottom_bar.dart';
+import 'accueil/components/bottom_bar.dart';
 import 'constants.dart';
 
 void main() {
