@@ -3,7 +3,7 @@ class Case {
   int position_Y;
   int valeur;
   bool estBloquee;
-  List<int> infos = List.filled(4, 0); // 0: haut, 1: bas, 2: gauche, 3: droite
+  List<int> infos = List.filled(2, 0); // 0: droite, 1: bas
 
   Case(this.position_X, this.position_Y, this.valeur, this.estBloquee,
       this.infos);

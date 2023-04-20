@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'composants/timer.dart';
+import 'package:kakuro/main.dart';
+import 'composants/grille.dart';
+import 'composants/appBar.dart';
 
 class PageDeJeu extends StatefulWidget {
   @override
@@ -9,17 +11,21 @@ class PageDeJeu extends StatefulWidget {
 class _PageDeJeuState extends State<PageDeJeu> {
   @override
   Widget build(BuildContext context) {
-    MyTimerApp timer = MyTimerApp();
+    //Variables
+    MyAppBar appBar = const MyAppBar();
+    Grille grille = Grille([3, 3], [], false);
+
+    //Affichage
     return Scaffold(
-      appBar: AppBar(
-        title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
-          SizedBox(width: 100),
-          timer,
-          SizedBox(width: 100),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-        ]),
-      ),
-    );
+        appBar: appBar,
+        body: Stack(children: [
+          Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/Sans_titre_1.png'),
+                      fit: BoxFit.cover)),
+              constraints: BoxConstraints.expand()),
+          Center(child: grille)
+        ]));
   }
 }

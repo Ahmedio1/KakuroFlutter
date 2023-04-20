@@ -1,12 +1,33 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-class MyTimerApp extends StatefulWidget {
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const MyAppBar({Key? key}) : super(key: key);
+
   @override
-  _MyTimerAppState createState() => _MyTimerAppState();
+  Widget build(BuildContext context) {
+    MyTimer timer = MyTimer();
+    return AppBar(
+      title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+        SizedBox(width: 100),
+        timer,
+        SizedBox(width: 100),
+        IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
+      ]),
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-class _MyTimerAppState extends State<MyTimerApp> {
+class MyTimer extends StatefulWidget {
+  @override
+  _MyTimerState createState() => _MyTimerState();
+}
+
+class _MyTimerState extends State<MyTimer> {
   int _seconds = 0;
   Timer? _timer;
 
