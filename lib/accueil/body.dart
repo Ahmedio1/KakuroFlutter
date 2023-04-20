@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../constants.dart';
+import 'package:kakuro/accueil/components/bottom_bar.dart';
 import 'components/btn_jouer.dart';
 import 'components/btn_regles.dart';
 import 'components/title_accueil.dart';
@@ -11,6 +9,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Stack(
       children: <Widget>[
         Container(
@@ -26,12 +25,13 @@ class Body extends StatelessWidget {
           child: Column(children: const [
             SizedBox(height: 40),
             TitleAccueil(),
-            SizedBox(height: 135),
+            SizedBox(height: 120),
             BtnJouer(),
             SizedBox(height: 25),
             BtnRegles(),
           ]),
         ),
+        const BottomBar(),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/constantes.dart';
 
 import 'btn_4.dart';
 import 'btn_6.dart';
@@ -12,13 +13,13 @@ class ChoixTaille extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(8),
       child: Stack(
         children: <Widget>[
           Positioned.fill(
             child: Container(
               decoration: const BoxDecoration(
-                color: Color.fromRGBO(61, 84, 103, 1),
+                color: kBlueColor,
               ),
             ),
           ),
@@ -31,15 +32,11 @@ class ChoixTaille extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("Taille de grille",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Inter',
-                              color: Colors.white)),
-                      Btn4(),
-                      Btn6(),
-                      Btn8(),
+                    children: [
+                      Text("Taille de grille", style: bullesBleuCielTexte),
+                      const Btn4(),
+                      const Btn6(),
+                      const Btn8(),
                     ],
                   )),
             ],

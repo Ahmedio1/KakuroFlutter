@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/constantes.dart';
 
-import '../../constants.dart';
-import 'pop_up/btn_4.dart';
-import 'pop_up/btn_6.dart';
-import 'pop_up/btn_8.dart';
+import 'pop_up_taille/btn_4.dart';
+import 'pop_up_taille/btn_6.dart';
+import 'pop_up_taille/btn_8.dart';
 
 class BtnJouer extends StatelessWidget {
   const BtnJouer({
@@ -21,13 +21,9 @@ class BtnJouer extends StatelessWidget {
           builder: (BuildContext context) => AlertDialog(
             //size: const Size(200, 200),
             backgroundColor: kBlueColor,
-            title: const Text(
+            title: Text(
               'Taille de grille',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Inter',
-                  color: Colors.white,
-                  backgroundColor: kBlueColor),
+              style: boutonTaille,
               textAlign: TextAlign.center,
             ),
             //content: const Text("taille"),
@@ -54,16 +50,13 @@ class BtnJouer extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.play_arrow,
+          children: [
+            const Icon(Icons.play_arrow,
                 color: Colors.white), // Logo de lecture (play) en blanc
-            SizedBox(width: 8.0), // Espacement entre le logo et le texte
+            const SizedBox(width: 8.0), // Espacement entre le logo et le texte
             Text(
               'Jouer',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Inter',
-                  fontSize: 20), // Couleur du texte (blanc)
+              style: boutonTaille, // Couleur du texte (blanc)
             ),
           ],
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kakuro/constants.dart';
+import 'package:kakuro/constantes.dart';
 
 class Btn4 extends StatelessWidget {
   const Btn4({
@@ -12,11 +12,10 @@ class Btn4 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Colors.white,
         padding: const EdgeInsets.all(16.0),
-        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Inter'),
+        textStyle: boutonTaille,
       ),
       onPressed: () => Navigator.pop(context, 'Cancel'),
-      child: const Text('4X4',
-          style: TextStyle(color: kBlueColor, fontFamily: 'Inter')),
+      child: Text('4 x 4', style: texteTaille),
     );
   }
 }

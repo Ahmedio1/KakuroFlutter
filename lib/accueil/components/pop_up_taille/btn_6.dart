@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/constantes.dart';
 
-import '../../../constants.dart';
-
-class Btn8 extends StatelessWidget {
-  const Btn8({
+class Btn6 extends StatelessWidget {
+  const Btn6({
     super.key,
   });
 
@@ -13,11 +12,13 @@ class Btn8 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Colors.white,
         padding: const EdgeInsets.all(16.0),
-        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Inter'),
+        textStyle: boutonTaille,
       ),
       onPressed: () {},
-      child: const Text('8X8',
-          style: TextStyle(color: kBlueColor, fontFamily: 'Inter')),
+      child: Text(
+        '6 x 6',
+        style: texteTaille,
+      ),
     );
   }
 }

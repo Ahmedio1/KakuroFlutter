@@ -1,5 +1,8 @@
-//Importation des packages : 
+//Importation des packages :
 import 'package:flutter/material.dart';
+
+const kBlueColor = Color.fromRGBO(61, 84, 103, 1);
+const kGreenColor = Color.fromRGBO(25, 151, 23, 1);
 
 TextStyle bullesTexte(BuildContext context) {
   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -28,7 +31,6 @@ TextStyle bullesBleuCielTexte = const TextStyle(
   fontFamily: 'Inter',
 );
 
-
 TextStyle kakuroCase = const TextStyle(
   color: Color(0xFF000000),
   fontSize: 64,
@@ -53,47 +55,66 @@ TextStyle kakuroPad(BuildContext context) {
   );
 }
 
-//Couleurs et styles pour le thème sombre : 
+TextStyle boutonTaille = const TextStyle(
+  color: Color(0xFFFFFFFF),
+  fontSize: 20,
+  fontWeight: FontWeight.w400, //épaisseur du texte : regular
+  fontFamily: 'Inter',
+);
+
+TextStyle texteTaille = const TextStyle(
+  color: kBlueColor,
+  fontSize: 20,
+  fontWeight: FontWeight.w400, //épaisseur du texte : regular
+  fontFamily: 'Inter',
+);
+
+TextStyle commentJouer = const TextStyle(
+  color: Colors.white,
+  fontSize: 10,
+  fontWeight: FontWeight.w400, //épaisseur du texte : regular
+  fontFamily: 'Inter',
+);
+
+//Couleurs et styles pour le thème sombre :
 ThemeData themeSombre = ThemeData(
   colorScheme: const ColorScheme(
+      primary: Color(0xFF3D5467), //bleu foncé pour les bulles principales
+      secondary: Color(0xFFA5CBE6), //bleu clair
+      error: Color(0xFFF0C3C3), //rouge pour les erreurs
+      tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
 
-    primary:  Color(0xFF3D5467), //bleu foncé pour les bulles principales
-    secondary:  Color(0xFFA5CBE6), //bleu clair 
-    error:  Color(0xFFF0C3C3), //rouge pour les erreurs
-    tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
+      surface: Color(
+          0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
+      background: Color(0xFFFFFFFF), //blanc pour les bulles secondaires
 
-    surface:  Color(0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
-    background:  Color(0xFFFFFFFF), //blanc pour les bulles secondaires
-
-
-    onPrimary: Colors.white, //blanc pour les textes en terme sombre
-    onSecondary: Colors.black, //noir
-    onBackground: Colors.black, //noir 
-    onError: Colors.black, //noir 
-    onSurface: Colors.black, //noir
-    brightness: Brightness.dark),
-
-  
+      onPrimary: Colors.white, //blanc pour les textes en terme sombre
+      onSecondary: Colors.black, //noir
+      onBackground: Colors.black, //noir
+      onError: Colors.black, //noir
+      onSurface: Colors.black, //noir
+      brightness: Brightness.dark),
 );
 
 //Couleurs et styles pour le thème clair :
 // Couleurs et styles pour le thème clair
 ThemeData themeClair = ThemeData(
   colorScheme: const ColorScheme(
-    primary: Color(0xFFFFFFFF), // bleu foncé pour les bulles principales
-    secondary: Color(0xFFA5CBE6), // bleu clair
-    error: Color(0xFFF0C3C3), // rouge pour les erreurs
-    tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
+      primary: Color(0xFFFFFFFF), // bleu foncé pour les bulles principales
+      secondary: Color(0xFFA5CBE6), // bleu clair
+      error: Color(0xFFF0C3C3), // rouge pour les erreurs
+      tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
 
-    surface:  Color(0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
-    background: Color(0xFF3D5467), // bleu foncé pour les bulles secondaires
+      surface: Color(
+          0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
+      background: Color(0xFF3D5467), // bleu foncé pour les bulles secondaires
 
-    onPrimary: Color(0xFF3D5467), // On écrit en bleu foncé
-    onSecondary: Colors.black, // noir
-    onBackground: Colors.black, // noir
-    onError: Colors.black, // noir
-    onSurface: Colors.black, // noir
-    brightness: Brightness.light),
+      onPrimary: Color(0xFF3D5467), // On écrit en bleu foncé
+      onSecondary: Colors.black, // noir
+      onBackground: Colors.black, // noir
+      onError: Colors.black, // noir
+      onSurface: Colors.black, // noir
+      brightness: Brightness.light),
 );
 
 double largeurEcran(BuildContext context) {
