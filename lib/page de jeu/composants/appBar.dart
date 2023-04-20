@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../constantes.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({Key? key}) : super(key: key);
@@ -8,11 +9,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     MyTimer timer = MyTimer();
     return AppBar(
+      elevation: 20,
+      backgroundColor: themeSombre.colorScheme.primary,
       title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
-        SizedBox(width: 100),
+        SizedBox(width: 0.3 * largeurEcran(context)),
         timer,
-        SizedBox(width: 100),
+        SizedBox(width: 0.3 * largeurEcran(context)),
         IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
       ]),
     );
