@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
+
 class Case {
   int valeur;
   bool estBloquee;
+  bool estSelectionee = false;
   List<int> infos = List.filled(2, 0); // 0: droite, 1: bas
 
   Case(this.valeur, this.estBloquee, this.infos);

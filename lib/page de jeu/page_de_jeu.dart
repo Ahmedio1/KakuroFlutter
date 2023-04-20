@@ -24,7 +24,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
                   image: DecorationImage(
                       image: AssetImage('assets/images/Sans_titre_1.png'),
                       fit: BoxFit.cover)),
-              constraints: BoxConstraints.expand()),
+              constraints: const BoxConstraints.expand()),
           Center(child: grille)
         ]));
   }

@@ -48,7 +48,7 @@ class Grille extends StatelessWidget {
       Case(0, false, [0, 0]),
       Case(0, false, [0, 0]),
       Case(0, false, [12, 0]),
-      Case(0, false, [0, 0]),
+      Case(8, false, [0, 0]),
       Case(0, false, [0, 0]),
       Case(0, false, [0, 0]),
       Case(0, false, [9, 0]),
@@ -57,6 +57,7 @@ class Grille extends StatelessWidget {
       Case(0, false, [0, 0]),
     ];
     Grille grille = Grille(taille, cases, estTerminee);
+    double largeur_case = 0.9 * largeurEcran(context) / 4;
 
     return Center(
       child: Container(
@@ -90,11 +91,13 @@ class Grille extends StatelessWidget {
                 GridView.count(crossAxisCount: 2, children: [
                   const Text(""),
                   Center(
-                      child:
-                          Text(c.infos[0].toString(), style: kakuroDictateur)),
+                      child: c.infos[0] != 0
+                          ? Text(c.infos[0].toString(), style: kakuroDictateur)
+                          : const Text("")),
                   Center(
-                      child:
-                          Text(c.infos[1].toString(), style: kakuroDictateur)),
+                      child: c.infos[1] != 0
+                          ? Text(c.infos[1].toString(), style: kakuroDictateur)
+                          : const Text("")),
                   const Text("")
                 ])
               ]);
@@ -104,10 +107,21 @@ class Grille extends StatelessWidget {
               return Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black),
+                  color: c.estSelectionee
+                      ? themeSombre.colorScheme.secondary //selectionee
+                      : themeSombre.colorScheme.background, //non selectionee
                 ),
                 child: Center(
                     child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState() {
+                      c.estSelectionee = true;
+                    }
+                  },
+                  style: ButtonStyle(
+                      // taille du boutton
+                      fixedSize: MaterialStateProperty.all(
+                          Size(largeur_case, largeur_case))),
                   child: c.valeur == 0
                       ? const Text("")
                       : Text(
