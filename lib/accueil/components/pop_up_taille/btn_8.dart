@@ -10,7 +10,7 @@ class Btn8 extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: Colors.white,
+        backgroundColor: themeSombre.colorScheme.onPrimary,
         padding: const EdgeInsets.all(16.0),
         textStyle: boutonTaille,
       ),

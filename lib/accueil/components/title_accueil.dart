@@ -12,7 +12,9 @@ class TitleAccueil extends StatelessWidget {
       Text(
         "Kakuro",
         style: GoogleFonts.getFont('Karma').copyWith(
-            fontSize: 50, fontWeight: FontWeight.bold, color: kBlueColor),
+            fontSize: 50,
+            fontWeight: FontWeight.bold,
+            color: themeSombre.colorScheme.primary),
       ),
       Text(
         'Master',

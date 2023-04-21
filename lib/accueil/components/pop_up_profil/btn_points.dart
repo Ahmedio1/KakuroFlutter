@@ -16,7 +16,7 @@ class BtnPoints extends StatelessWidget {
         Container(
           width: 200,
           decoration: BoxDecoration(
-            color: const Color.fromRGBO(165, 203, 230, 1),
+            color: themeSombre.colorScheme.secondary,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(

@@ -15,7 +15,7 @@ class BtnRegles extends StatelessWidget {
         onPressed: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-            backgroundColor: kBlueColor,
+            backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Règles du Kakuro',
               style: boutonTaille,
@@ -35,7 +35,8 @@ class BtnRegles extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(10),
-          backgroundColor: kBlueColor, // Couleur du fond du bouton (bleu)
+          backgroundColor: themeSombre
+              .colorScheme.primary, // Couleur du fond du bouton (bleu)
         ),
         child: Text('Comment jouer ?',
             style: commentJouer), // Couleur du texte (blanc)

@@ -1,7 +1,6 @@
 //Importation des packages :
 import 'package:flutter/material.dart';
 
-const kBlueColor = Color.fromRGBO(61, 84, 103, 1);
 const kGreenColor = Color.fromRGBO(25, 151, 23, 1);
 
 TextStyle bullesTexte(BuildContext context) {
@@ -63,7 +62,7 @@ TextStyle boutonTaille = const TextStyle(
 );
 
 TextStyle texteTaille = const TextStyle(
-  color: kBlueColor,
+  color: Color(0xFF3D5467),
   fontSize: 20,
   fontWeight: FontWeight.w400, //épaisseur du texte : regular
   fontFamily: 'Inter',

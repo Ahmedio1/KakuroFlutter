@@ -20,7 +20,7 @@ class BtnJouer extends StatelessWidget {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             //size: const Size(200, 200),
-            backgroundColor: kBlueColor,
+            backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Taille de grille',
               style: boutonTaille,
@@ -46,7 +46,8 @@ class BtnJouer extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: kBlueColor, // Couleur du fond du bouton (bleu)
+          backgroundColor: themeSombre
+              .colorScheme.primary, // Couleur du fond du bouton (bleu)
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
