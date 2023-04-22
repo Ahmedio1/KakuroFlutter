@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../constantes.dart';
@@ -52,7 +51,7 @@ class Grille extends StatelessWidget {
       Case(0, false, [0, 0]),
       Case(0, false, [0, 0]),
       Case(0, false, [9, 0]),
-      Case(0, false, [0, 0]),
+      Case(3, false, [0, 0]),
       Case(0, false, [0, 0]),
       Case(0, false, [0, 0]),
     ];
