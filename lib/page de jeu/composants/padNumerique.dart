@@ -11,6 +11,8 @@ class _MyPadState extends State<MyPad> {
   Widget build(BuildContext context) {
     // * COMPOSANTS
     Gomme gomme = Gomme();
+    Reset reset = Reset();
+    Indice indice = Indice();
 
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15),
@@ -19,7 +21,7 @@ class _MyPadState extends State<MyPad> {
         crossAxisSpacing: 10,
         crossAxisCount: 6,
         children: List.generate(12, (index) {
-          if (index < 10) {
+          if (index < 9) {
             return Container(
                 width: 0.1 * largeurEcran(context),
                 height: 0.1 * largeurEcran(context),
@@ -37,29 +39,12 @@ class _MyPadState extends State<MyPad> {
                           (index + 1).toString(),
                           style: bullesSecondaireTexte(context),
                         ))));
+          } else if (index == 9) {
+            return indice;
           } else if (index == 10) {
             return gomme;
           } else {
-            return Container(
-              width: 0.1 * largeurEcran(context),
-              height: 0.1 * largeurEcran(context),
-              decoration: BoxDecoration(
-                  color: themeSombre.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                      color: themeSombre.colorScheme.secondary, width: 2)),
-              child: Center(
-                child: TextButton(
-                  onPressed: () {
-                    print(index + 1);
-                  },
-                  child: Text(
-                    (index + 1).toString(),
-                    style: bullesSecondaireTexte(context),
-                  ),
-                ),
-              ),
-            );
+            return reset;
           }
         }),
       ),
@@ -98,6 +83,94 @@ class _GommeState extends State<Gomme> {
         ElevatedButton(
             onPressed: () {
               print("GOMME");
+            },
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(
+                  0.2 * largeurEcran(context), 0.2 * largeurEcran(context)),
+              backgroundColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+            child: null)
+      ]),
+    );
+  }
+}
+
+class Reset extends StatefulWidget {
+  @override
+  _ResetState createState() => _ResetState();
+}
+
+class _ResetState extends State<Reset> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 0.2 * largeurEcran(context),
+      height: 0.2 * largeurEcran(context),
+      decoration: BoxDecoration(
+        color: themeSombre.colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: themeSombre.colorScheme.secondary, width: 2),
+      ),
+      child: Stack(children: [
+        Center(
+          child: Icon(
+            Icons.refresh,
+            size: 0.1 * largeurEcran(context),
+            color: themeSombre.colorScheme.onPrimary,
+          ),
+        ),
+        ElevatedButton(
+            onPressed: () {
+              print("RESET");
+            },
+            style: ElevatedButton.styleFrom(
+              fixedSize: Size(
+                  0.2 * largeurEcran(context), 0.2 * largeurEcran(context)),
+              backgroundColor: Colors.transparent,
+              shadowColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+            child: null)
+      ]),
+    );
+  }
+}
+
+class Indice extends StatefulWidget {
+  @override
+  _IndiceState createState() => _IndiceState();
+}
+
+class _IndiceState extends State<Indice> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 0.2 * largeurEcran(context),
+      height: 0.2 * largeurEcran(context),
+      decoration: BoxDecoration(
+        color: themeSombre.colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: themeSombre.colorScheme.secondary, width: 2),
+      ),
+      child: Stack(children: [
+        Center(
+          child: Container(
+            width: 0.1 * largeurEcran(context),
+            height: 0.1 * largeurEcran(context),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/indice.png"),
+              ),
+            ),
+          ),
+        ),
+        ElevatedButton(
+            onPressed: () {
+              print("INDICE");
             },
             style: ElevatedButton.styleFrom(
               fixedSize: Size(
