@@ -19,7 +19,7 @@ class BtnProfil extends StatelessWidget {
         onPressed: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-            backgroundColor: themeSombre.colorScheme.primary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             title: Text(
               'Votre profil',
               style: bullesSecondaireTexte(context),
@@ -44,10 +44,16 @@ class BtnProfil extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           //alignment: Alignment.center,
-          backgroundColor: themeSombre
-              .colorScheme.primary, // Couleur du fond du bouton (bleu)
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primary, // Couleur du fond du bouton (bleu)
         ),
-        child: const Icon(Icons.account_circle, size: 50, color: Colors.white),
+        child: Icon(Icons.account_circle,
+            size: 40, color: Theme.of(context).colorScheme.background),
       ),
     );
   }

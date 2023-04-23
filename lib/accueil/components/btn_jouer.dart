@@ -20,7 +20,7 @@ class BtnJouer extends StatelessWidget {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             //size: const Size(200, 200),
-            backgroundColor: themeSombre.colorScheme.primary,
+            backgroundColor: Theme.of(context).colorScheme.primary,
             title: Text(
               'Taille de grille',
               style: bullesSecondaireTexte(context),
@@ -45,15 +45,21 @@ class BtnJouer extends StatelessWidget {
           ),
         ),
         style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
           padding: const EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: themeSombre
-              .colorScheme.primary, // Couleur du fond du bouton (bleu)
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primary, // Couleur du fond du bouton (bleu)
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.play_arrow,
-                color: Colors.white), // Logo de lecture (play) en blanc
+            Icon(Icons.play_arrow,
+                color: Theme.of(context)
+                    .colorScheme
+                    .background), // Logo de lecture (play) en blanc
             const SizedBox(width: 8.0), // Espacement entre le logo et le texte
             Text(
               'Jouer',

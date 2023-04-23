@@ -23,34 +23,35 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Size size = MediaQuery.of(context).size;
-    return Stack(
-      children: <Widget>[
-        Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/fond.png'),
-              fit: BoxFit.cover,
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('KarakuroFlutter/assets/images/fond.png'),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        Center(
-          child: Column(children: const [
-            SizedBox(height: 40),
-            TitleAccueil(),
-            SizedBox(height: 90),
-            BtnJouer(),
-            SizedBox(height: 25),
-            BtnRegles(),
-          ]),
-        ),
-        BottomBar(
-            updateTheme: updateTheme,
-            player: player,
-            isNightMode: isNightMode,
-            initialVolume: initialVolume,
-            updateVolume: updateVolume),
-      ],
+          Center(
+            child: Column(children: const [
+              SizedBox(height: 40),
+              TitleAccueil(),
+              SizedBox(height: 90),
+              BtnJouer(),
+              SizedBox(height: 25),
+              BtnRegles(),
+            ]),
+          ),
+          BottomBar(
+              updateTheme: updateTheme,
+              player: player,
+              isNightMode: isNightMode,
+              initialVolume: initialVolume,
+              updateVolume: updateVolume),
+        ],
+      ),
     );
   }
 }
