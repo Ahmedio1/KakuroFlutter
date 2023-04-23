@@ -5,7 +5,7 @@ TextStyle bullesTexte(BuildContext context) {
   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
   return TextStyle(
     color: isDarkMode ? const Color(0xFFFFFFFF) : const Color(0xFF3D5467),
-    fontSize: 96,
+    fontSize: 30,
     fontWeight: FontWeight.w600,
     fontFamily: 'Inter',
   );
@@ -15,7 +15,7 @@ TextStyle bullesSecondaireTexte(BuildContext context) {
   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
   return TextStyle(
     color: isDarkMode ? const Color(0xFF000000) : const Color(0xFFFFFFFF),
-    fontSize: 64,
+    fontSize: 18,
     fontWeight: FontWeight.w600,
     fontFamily: 'Inter',
   );
@@ -23,7 +23,7 @@ TextStyle bullesSecondaireTexte(BuildContext context) {
 
 TextStyle bullesBleuCielTexte = const TextStyle(
   color: Color(0xFFFFFFFF),
-  fontSize: 64,
+  fontSize: 18,
   fontWeight: FontWeight.w400, //épaisseur du texte : regular
   fontFamily: 'Inter',
 );
@@ -31,14 +31,14 @@ TextStyle bullesBleuCielTexte = const TextStyle(
 
 TextStyle kakuroCase = const TextStyle(
   color: Color(0xFF000000),
-  fontSize: 64,
+  fontSize: 18,
   fontWeight: FontWeight.w400, //épaisseur du texte : regular
   fontFamily: 'Inter',
 );
 
 TextStyle kakuroDictateur = const TextStyle(
   color: Color(0xFFFFFFFF),
-  fontSize: 48,
+  fontSize: 12,
   fontWeight: FontWeight.w400, //épaisseur du texte : regular
   fontFamily: 'Inter',
 );
@@ -47,7 +47,7 @@ TextStyle kakuroPad(BuildContext context) {
   bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
   return TextStyle(
     color: isDarkMode ? const Color(0xFFFFFFFF) : const Color(0xFF3D5467),
-    fontSize: 64,
+    fontSize: 18,
     fontWeight: FontWeight.w500, //épaisseur du texte : Medium
     fontFamily: 'Inter',
   );
@@ -67,8 +67,8 @@ ThemeData themeSombre = ThemeData(
 
 
     onPrimary: Colors.white, //blanc pour les textes en terme sombre
-    onSecondary: Colors.black, //noir
-    onBackground: Colors.black, //noir 
+    onSecondary: Color(0xFFA5CBE6), //bleu clair pour les boutons de navigation
+    onBackground: Colors.white, //blanc pour les fonds de barre de navigation
     onError: Colors.black, //noir 
     onSurface: Colors.black, //noir
     brightness: Brightness.dark),
@@ -89,8 +89,8 @@ ThemeData themeClair = ThemeData(
     background: Color(0xFF3D5467), // bleu foncé pour les bulles secondaires
 
     onPrimary: Color(0xFF3D5467), // On écrit en bleu foncé
-    onSecondary: Colors.black, // noir
-    onBackground: Colors.black, // noir
+    onSecondary: Color(0xFF3D5467), // bleu foncé pour les boutons de navigation
+    onBackground: Color(0xFFD9D9D9), // gris clair pour les fonds de barre de navigation
     onError: Colors.black, // noir
     onSurface: Colors.black, // noir
     brightness: Brightness.light),
