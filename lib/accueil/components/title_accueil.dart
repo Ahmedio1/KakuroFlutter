@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart' as gf;
 
 import '../../constantes.dart';
 
@@ -11,17 +11,11 @@ class TitleAccueil extends StatelessWidget {
     return Column(children: [
       Text(
         "Kakuro",
-        style: GoogleFonts.getFont('Karma').copyWith(
-            fontSize: 50,
-            fontWeight: FontWeight.bold,
-            color: themeSombre.colorScheme.primary),
+        style: gf.GoogleFonts.karma(fontSize: 50, fontWeight: FontWeight.bold, color: themeSombre.colorScheme.primary),
       ),
       Text(
         'Master',
-        style: GoogleFonts.getFont('Karma').copyWith(
-          fontSize: 50,
-          fontWeight: FontWeight.bold,
-          color: const Color.fromRGBO(25, 151, 23, 1),
+        style: gf.GoogleFonts.karma(fontSize: 50, fontWeight: FontWeight.bold, color: const Color.fromRGBO(25, 151, 23, 1)
         ),
       ),
     ]);

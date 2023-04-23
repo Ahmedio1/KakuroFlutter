@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('KarakuroFlutter/assets/images/fond.png'),
+                image: AssetImage('assets/images/fond.png'),
                 fit: BoxFit.cover,
               ),
             ),

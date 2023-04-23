@@ -12,12 +12,15 @@ class Btn6 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
         padding: const EdgeInsets.all(16.0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
         textStyle: bullesSecondaireTexte(context),
       ),
       onPressed: () {},
       child: Text(
         '6 x 6',
-        style: kakuroPad(context),
+        style: bullesSecondaireTexte(context),
       ),
     );
   }

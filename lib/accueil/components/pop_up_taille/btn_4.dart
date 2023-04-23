@@ -12,10 +12,13 @@ class Btn4 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: Theme.of(context).colorScheme.onPrimary,
         padding: const EdgeInsets.all(16.0),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
         textStyle: bullesSecondaireTexte(context),
       ),
       onPressed: () => Navigator.pop(context, 'Cancel'),
-      child: Text('4 x 4', style: kakuroPad(context)),
+      child: Text('4 x 4', style: bullesSecondaireTexte(context)),
     );
   }
 }

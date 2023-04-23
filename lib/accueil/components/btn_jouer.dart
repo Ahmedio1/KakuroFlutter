@@ -14,30 +14,33 @@ class BtnJouer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 120,
+      width: 180,
       child: ElevatedButton(
         onPressed: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
             //size: const Size(200, 200),
             backgroundColor: Theme.of(context).colorScheme.primary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
             title: Text(
               'Taille de grille',
-              style: bullesSecondaireTexte(context),
+              style: bullesTexte(context),
               textAlign: TextAlign.center,
             ),
             //content: const Text("taille"),
-            actions: <Widget>[
+            actions: const <Widget>[
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children: [
                     Btn4(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 10),
                     Btn6(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 10),
                     Btn8(),
-                    SizedBox(height: 8),
+                    SizedBox(height: 10),
                   ],
                 ),
               ),
@@ -45,25 +48,20 @@ class BtnJouer extends StatelessWidget {
           ),
         ),
         style: ElevatedButton.styleFrom(
+          alignment: Alignment.center,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: Theme.of(context)
-              .colorScheme
-              .primary, // Couleur du fond du bouton (bleu)
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+          backgroundColor: Theme.of(context).colorScheme.primary, // Couleur du fond du bouton (bleu)
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.play_arrow,
-                color: Theme.of(context)
-                    .colorScheme
-                    .background), // Logo de lecture (play) en blanc
-            const SizedBox(width: 8.0), // Espacement entre le logo et le texte
+            Icon(Icons.play_arrow, color: Theme.of(context).colorScheme.background, size: 40), // Logo de lecture (play) en blanc
+            const SizedBox(width: 5.0), // Espacement entre le logo et le texte
             Text(
               'Jouer',
-              style: bullesSecondaireTexte(context), // Couleur du texte (blanc)
+              style: bullesTexte(context), // Couleur du texte (blanc)
             ),
           ],
         ),
