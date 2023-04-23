@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../constantes.dart';
 
 class MyPad extends StatefulWidget {
+  const MyPad({super.key});
+
   @override
   _MyPadState createState() => _MyPadState();
 }
@@ -53,6 +55,8 @@ class _MyPadState extends State<MyPad> {
 }
 
 class Gomme extends StatefulWidget {
+  const Gomme({super.key});
+
   @override
   _GommeState createState() => _GommeState();
 }
@@ -99,6 +103,8 @@ class _GommeState extends State<Gomme> {
 }
 
 class Reset extends StatefulWidget {
+  const Reset({super.key});
+
   @override
   _ResetState createState() => _ResetState();
 }
@@ -141,6 +147,8 @@ class _ResetState extends State<Reset> {
 }
 
 class Indice extends StatefulWidget {
+  const Indice({super.key});
+
   @override
   _IndiceState createState() => _IndiceState();
 }

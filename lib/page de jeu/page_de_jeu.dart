@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
 import '../constantes.dart';
 import 'composants/grille.dart';
 import 'composants/appBar.dart';
@@ -14,10 +15,11 @@ class PageDeJeu extends StatefulWidget {
 class _PageDeJeuState extends State<PageDeJeu> {
   @override
   Widget build(BuildContext context) {
-    //Variables
+    // * Variables
     MyAppBar appBar = const MyAppBar();
     Grille grille = Grille([3, 3], [], false);
     MyPad pad = MyPad();
+    BoutonValider boutonValider = const BoutonValider();
 
     //Affichage
     return Scaffold(
@@ -35,23 +37,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
               grille,
               SizedBox(height: 0.2 * largeurEcran(context)),
               Expanded(child: Container(child: pad)),
-              Padding(
-                padding: EdgeInsets.only(bottom: 0.18 * largeurEcran(context)),
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        elevation: 20,
-                        backgroundColor: themeSombre.colorScheme.primary,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 0.08 * largeurEcran(context),
-                            vertical: 0.03 * largeurEcran(context))),
-                    onPressed: () {
-                      print("Valider");
-                    },
-                    child:
-                        Text('Valider', style: bullesSecondaireTexte(context))),
-              )
+              boutonValider,
             ],
           )
         ]));
