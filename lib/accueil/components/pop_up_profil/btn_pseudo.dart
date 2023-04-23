@@ -12,7 +12,7 @@ class BtnPseudo extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('Pseudo : ', style: boutonTaille),
+        Text('Pseudo : ', style: bullesSecondaireTexte(context)),
         Container(
           width: 200,
           decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class BtnPseudo extends StatelessWidget {
           ),
           child: Text(
             '',
-            style: boutonTaille,
+            style: bullesSecondaireTexte(context),
           ),
         ),
       ],

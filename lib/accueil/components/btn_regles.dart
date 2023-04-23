@@ -18,12 +18,12 @@ class BtnRegles extends StatelessWidget {
             backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Règles du Kakuro',
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
               textAlign: TextAlign.center,
             ),
             content: Text(
               "Le but du jeu est de remplir la grille (c'est-à-dire toutes les cases blanches) en respectant 2 règles : \n— Le total des cases de chaque bloc doit être égal à l'indice inscrit en face ; \n— Pas de répétition : un même chiffre ne peut pas apparaître plus d'une fois dans chaque bloc.",
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
             ),
             actions: <Widget>[
               TextButton(
@@ -39,7 +39,7 @@ class BtnRegles extends StatelessWidget {
               .colorScheme.primary, // Couleur du fond du bouton (bleu)
         ),
         child: Text('Comment jouer ?',
-            style: commentJouer), // Couleur du texte (blanc)
+            style: kakuroCase), // Couleur du texte (blanc)
       ),
     );
   }

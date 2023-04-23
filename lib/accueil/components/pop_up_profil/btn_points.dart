@@ -12,7 +12,7 @@ class BtnPoints extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('Points : ', style: boutonTaille),
+        Text('Points : ', style: bullesSecondaireTexte(context)),
         Container(
           width: 200,
           decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class BtnPoints extends StatelessWidget {
           ),
           child: Text(
             '',
-            style: boutonTaille,
+            style: bullesSecondaireTexte(context),
           ),
         ),
       ],

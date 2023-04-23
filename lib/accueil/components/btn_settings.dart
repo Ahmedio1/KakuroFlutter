@@ -20,7 +20,7 @@ class BtnSettings extends StatelessWidget {
             backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Paramètres',
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
               textAlign: TextAlign.center,
             ),
             actions: <Widget>[

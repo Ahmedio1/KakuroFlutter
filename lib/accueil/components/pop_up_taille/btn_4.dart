@@ -12,10 +12,10 @@ class Btn4 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: themeSombre.colorScheme.onPrimary,
         padding: const EdgeInsets.all(16.0),
-        textStyle: boutonTaille,
+        textStyle: bullesSecondaireTexte(context),
       ),
       onPressed: () => Navigator.pop(context, 'Cancel'),
-      child: Text('4 x 4', style: texteTaille),
+      child: Text('4 x 4', style: kakuroPad(context)),
     );
   }
 }

@@ -21,7 +21,7 @@ class TitleAccueil extends StatelessWidget {
         style: GoogleFonts.getFont('Karma').copyWith(
           fontSize: 50,
           fontWeight: FontWeight.bold,
-          color: kGreenColor,
+          color: const Color.fromRGBO(25, 151, 23, 1),
         ),
       ),
     ]);

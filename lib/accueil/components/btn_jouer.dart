@@ -23,7 +23,7 @@ class BtnJouer extends StatelessWidget {
             backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Taille de grille',
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
               textAlign: TextAlign.center,
             ),
             //content: const Text("taille"),
@@ -57,7 +57,7 @@ class BtnJouer extends StatelessWidget {
             const SizedBox(width: 8.0), // Espacement entre le logo et le texte
             Text(
               'Jouer',
-              style: boutonTaille, // Couleur du texte (blanc)
+              style: bullesSecondaireTexte(context), // Couleur du texte (blanc)
             ),
           ],
         ),

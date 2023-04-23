@@ -12,10 +12,10 @@ class Btn8 extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: themeSombre.colorScheme.onPrimary,
         padding: const EdgeInsets.all(16.0),
-        textStyle: boutonTaille,
+        textStyle: bullesSecondaireTexte(context),
       ),
       onPressed: () {},
-      child: Text('8 x 8', style: texteTaille),
+      child: Text('8 x 8', style: kakuroPad(context)),
     );
   }
 }

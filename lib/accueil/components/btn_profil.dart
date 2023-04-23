@@ -22,7 +22,7 @@ class BtnProfil extends StatelessWidget {
             backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Votre profil',
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
               textAlign: TextAlign.center,
             ),
             actions: <Widget>[

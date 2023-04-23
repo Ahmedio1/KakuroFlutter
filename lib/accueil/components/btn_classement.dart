@@ -20,7 +20,7 @@ class BtnClassement extends StatelessWidget {
             backgroundColor: themeSombre.colorScheme.primary,
             title: Text(
               'Classement',
-              style: boutonTaille,
+              style: bullesSecondaireTexte(context),
               textAlign: TextAlign.center,
             ),
             actions: <Widget>[
