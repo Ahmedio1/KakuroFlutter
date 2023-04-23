@@ -62,6 +62,8 @@ flutter:
   assets:
       - assets/images/Sans_titre_1.png
       - assets/images/Case_dictatrice.png
+      - assets/images/gomme.png
+      - assets/images/indice.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
