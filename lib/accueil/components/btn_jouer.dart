@@ -30,11 +30,11 @@ class BtnJouer extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             //content: const Text("taille"),
-            actions: const <Widget>[
+            actions: <Widget>[
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Btn4(),
                     SizedBox(height: 10),
                     Btn6(),
@@ -53,11 +53,15 @@ class BtnJouer extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
           ),
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-          backgroundColor: Theme.of(context).colorScheme.primary, // Couleur du fond du bouton (bleu)
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primary, // Couleur du fond du bouton (bleu)
         ),
         child: Row(
           children: [
-            Icon(Icons.play_arrow, color: Theme.of(context).colorScheme.background, size: 40), // Logo de lecture (play) en blanc
+            Icon(Icons.play_arrow,
+                color: Theme.of(context).colorScheme.background,
+                size: 40), // Logo de lecture (play) en blanc
             const SizedBox(width: 5.0), // Espacement entre le logo et le texte
             Text(
               'Jouer',

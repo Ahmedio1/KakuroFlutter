@@ -34,8 +34,8 @@ class Body extends StatelessWidget {
               ),
             ),
           ),
-          const Center(
-            child: Column(children: [
+          Center(
+            child: Column(children: const [
               SizedBox(height: 120),
               TitleAccueil(),
               SizedBox(height: 150),

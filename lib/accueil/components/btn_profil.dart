@@ -29,10 +29,10 @@ class BtnProfil extends StatelessWidget {
               style: bullesTexte(context),
               textAlign: TextAlign.center,
             ),
-            actions: const <Widget>[
+            actions: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Image(
                       image: AssetImage("assets/images/avatar.png"),
                       height: 100,

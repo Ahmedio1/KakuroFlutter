@@ -27,11 +27,11 @@ class BtnClassement extends StatelessWidget {
               style: bullesTexte(context),
               textAlign: TextAlign.center,
             ),
-            actions: const <Widget>[
+            actions: <Widget>[
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [],
+                  children: const [],
                 ),
               ),
             ],
@@ -43,10 +43,12 @@ class BtnClassement extends StatelessWidget {
             borderRadius: BorderRadius.circular(35.0),
           ),
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-          backgroundColor: Theme.of(context).colorScheme.primary, // Couleur du fond du bouton (bleu)
+          backgroundColor: Theme.of(context)
+              .colorScheme
+              .primary, // Couleur du fond du bouton (bleu)
         ),
         child: Icon(Icons.align_vertical_bottom_sharp,
-          color: Theme.of(context).colorScheme.background, size: 70),
+            color: Theme.of(context).colorScheme.background, size: 70),
       ),
     );
   }
