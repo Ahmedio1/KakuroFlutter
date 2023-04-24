@@ -24,7 +24,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 40,
+      bottom: 20,
       left: 0,
       right: 0,
       child: Row(

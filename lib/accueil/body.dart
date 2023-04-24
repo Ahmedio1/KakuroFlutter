@@ -43,11 +43,14 @@ class Body extends StatelessWidget {
                 double hauteurEcran = constraints.maxHeight;
                 return Column(
                   children: [
-                    SizedBox(height: (120 * 900 / hauteurEcran)), //900 = hauteur de l'écran de base avec lequel j'ai travaillé : galaxy A52S
+                    SizedBox(
+                        height: (120 *
+                            hauteurEcran /
+                            900)), //900 = hauteur de l'écran de base avec lequel j'ai travaillé : galaxy A52S
                     const TitleAccueil(),
-                    SizedBox(height: (150 * 900 / hauteurEcran)),
+                    SizedBox(height: (150 * hauteurEcran / 900)),
                     const BtnJouer(),
-                    SizedBox(height: (20 * 900 / hauteurEcran)),
+                    SizedBox(height: (20 * hauteurEcran / 900)),
                     const BtnRegles(),
                   ],
                 );
