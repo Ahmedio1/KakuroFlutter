@@ -96,10 +96,25 @@ ThemeData themeClair = ThemeData(
     brightness: Brightness.light),
 );
 
-double largeurEcran(BuildContext context) {
+num largeurEcran(BuildContext context) {
   return MediaQuery.of(context).size.width;
 }
 
-double hauteurEcran(BuildContext context) {
+num hauteurEcran(BuildContext context) {
   return MediaQuery.of(context).size.height;
+}
+
+//Fonction pas utilisée pour l'instant,mais utilisable si besoin de texte responsive
+double responsiveFontSize(BuildContext context, double baseFontSize) {
+  double screenWidth = MediaQuery.of(context).size.width;
+  double screenHeight = MediaQuery.of(context).size.height;
+
+  // Taille de base pour la référence (Galaxy A52S: 1080 x 2400), mais screenWidth = 900 et screenHeight = 412 (je ne sais pas pourquoi)
+  double referenceWidth = 900;
+  double referenceHeight = 412;
+
+  // Calculez la taille de police proportionnelle
+  double responsiveSize = baseFontSize * (screenWidth / referenceWidth + screenHeight / referenceHeight) / 2;
+
+  return responsiveSize;
 }
