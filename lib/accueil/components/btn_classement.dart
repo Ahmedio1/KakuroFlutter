@@ -9,7 +9,8 @@ class BtnClassement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 70,
+      width: 120,
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -18,16 +19,19 @@ class BtnClassement extends StatelessWidget {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             backgroundColor: Theme.of(context).colorScheme.primary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
             title: Text(
               'Classement',
-              style: bullesSecondaireTexte(context),
+              style: bullesTexte(context),
               textAlign: TextAlign.center,
             ),
-            actions: <Widget>[
+            actions: const <Widget>[
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [],
+                  children: [],
                 ),
               ),
             ],
@@ -36,15 +40,13 @@ class BtnClassement extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           alignment: Alignment.center,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(35.0),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-          backgroundColor: Theme.of(context)
-              .colorScheme
-              .primary, // Couleur du fond du bouton (bleu)
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          backgroundColor: Theme.of(context).colorScheme.primary, // Couleur du fond du bouton (bleu)
         ),
         child: Icon(Icons.align_vertical_bottom_sharp,
-            size: 40, color: Theme.of(context).colorScheme.background),
+          color: Theme.of(context).colorScheme.background, size: 70),
       ),
     );
   }

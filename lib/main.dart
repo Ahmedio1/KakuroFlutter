@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   ThemeData currentTheme = themeSombre;
   final AudioPlayer player = AudioPlayer();
   bool isNightMode = true;
-  double volume = 0.5;
+  double volume = 0.15;
 
   void updateTheme(bool isNightMode) {
     setState(() {

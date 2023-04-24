@@ -23,19 +23,29 @@ class BottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
+    return Positioned(
+      bottom: 40,
+      left: 0,
+      right: 0,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const BtnProfil(),
-          const BtnClassement(),
-          Parametres(
-              updateTheme: updateTheme,
-              player: player,
-              isNightMode: isNightMode,
-              initialVolume: initialVolume,
-              updateVolume: updateVolume),
+          const Expanded(
+            child: Center(child: const BtnProfil()),
+          ),
+          const Expanded(
+            child: Center(child: const BtnClassement()),
+          ),
+          Expanded(
+            child: Center(
+              child: Parametres(
+                updateTheme: updateTheme,
+                player: player,
+                isNightMode: isNightMode,
+                initialVolume: initialVolume,
+                updateVolume: updateVolume,
+              ),
+            ),
+          ),
         ],
       ),
     );

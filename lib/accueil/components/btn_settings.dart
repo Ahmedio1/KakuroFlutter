@@ -66,13 +66,13 @@ class Parametres extends StatelessWidget {
         ),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(35.0),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
         child: Icon(Icons.settings,
-            color: Theme.of(context).colorScheme.background, size: 40),
+            color: Theme.of(context).colorScheme.background, size: 70),
       ),
     );
   }

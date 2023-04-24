@@ -11,7 +11,8 @@ class BtnProfil extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 60,
+      width: 120,
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -20,15 +21,18 @@ class BtnProfil extends StatelessWidget {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             backgroundColor: Theme.of(context).colorScheme.primary,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
             title: Text(
               'Votre profil',
-              style: bullesSecondaireTexte(context),
+              style: bullesTexte(context),
               textAlign: TextAlign.center,
             ),
-            actions: <Widget>[
+            actions: const <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Image(
                       image: AssetImage("assets/images/avatar.png"),
                       height: 100,
@@ -37,6 +41,7 @@ class BtnProfil extends StatelessWidget {
                   BtnPseudo(),
                   SizedBox(height: 15),
                   BtnPoints(),
+                  SizedBox(height: 20),
                 ],
               ),
             ],
@@ -45,15 +50,15 @@ class BtnProfil extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           //alignment: Alignment.center,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(35.0),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           backgroundColor: Theme.of(context)
               .colorScheme
               .primary, // Couleur du fond du bouton (bleu)
         ),
         child: Icon(Icons.account_circle,
-            size: 40, color: Theme.of(context).colorScheme.background),
+            size: 70, color: Theme.of(context).colorScheme.background),
       ),
     );
   }

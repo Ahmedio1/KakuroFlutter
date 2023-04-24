@@ -12,7 +12,7 @@ class BtnPoints extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text('Points : ', style: bullesSecondaireTexte(context)),
+        Text('Points : ', style: kakuroPad(context)),
         Container(
           width: 200,
           decoration: BoxDecoration(
@@ -21,7 +21,7 @@ class BtnPoints extends StatelessWidget {
           ),
           child: Text(
             '',
-            style: bullesSecondaireTexte(context),
+            style: bullesBleuCielTexte,
           ),
         ),
       ],

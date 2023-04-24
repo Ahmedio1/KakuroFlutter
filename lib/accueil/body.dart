@@ -34,13 +34,13 @@ class Body extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: Column(children: const [
-              SizedBox(height: 40),
+          const Center(
+            child: Column(children: [
+              SizedBox(height: 120),
               TitleAccueil(),
-              SizedBox(height: 90),
+              SizedBox(height: 150),
               BtnJouer(),
-              SizedBox(height: 25),
+              SizedBox(height: 20),
               BtnRegles(),
             ]),
           ),
