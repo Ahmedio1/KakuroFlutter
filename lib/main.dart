@@ -39,6 +39,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     //_prepareAudio();
+    player.setVolume(volume);
     player.play(AssetSource('wiisportstheme.mp3'));
     player.setReleaseMode(ReleaseMode.loop);
   }

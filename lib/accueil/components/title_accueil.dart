@@ -17,7 +17,7 @@ class TitleAccueil extends StatelessWidget {
             style: gf.GoogleFonts.karma(
               fontSize: 50,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.primary,
+              color: const Color(0xFF3D5467),
               height: 0.8, // Hauteur de ligne spécifique pour contrôler l'espacement vertical
             ),
           ),
