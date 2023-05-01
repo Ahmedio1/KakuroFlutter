@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kakuro/constantes.dart';
 import 'accueil/body.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'constantes.dart';
+import 'parametres.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,6 +75,38 @@ class MyHomePage extends StatelessWidget {
     return const Scaffold(
       body: Body(),
       //bottomNavigationBar: BottomBar(),
+class Body extends StatelessWidget {
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
+
+  const Body({Key? key, required this.updateTheme, required this.player, required this.isNightMode, required this.initialVolume, required this.updateVolume}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/fond.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Center(
+            child: Column(
+              children: [
+                const SizedBox(height: 200),
+                Parametres(updateTheme: updateTheme,  player: player, isNightMode: isNightMode, initialVolume: initialVolume, updateVolume: updateVolume),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }*/

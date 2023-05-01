@@ -1,4 +1,4 @@
-package com.example.kakuro
+package com.example.kakuro_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 
