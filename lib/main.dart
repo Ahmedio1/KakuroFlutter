@@ -44,7 +44,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: currentTheme,
-      home: Body(updateTheme: updateTheme, player: player, isNightMode: isNightMode, initialVolume: volume , updateVolume: (double volume) => setState(() => this.volume = volume)),
+      home: Body(
+          updateTheme: updateTheme,
+          player: player,
+          isNightMode: isNightMode,
+          initialVolume: volume,
+          updateVolume: (double volume) =>
+              setState(() => this.volume = volume)),
     );
   } //Update volume est un callback qui permet de mettre à jour le volume
 }
@@ -56,7 +62,14 @@ class Body extends StatelessWidget {
   final double initialVolume;
   final void Function(double) updateVolume;
 
-  const Body({Key? key, required this.updateTheme, required this.player, required this.isNightMode, required this.initialVolume, required this.updateVolume}) : super(key: key);
+  const Body(
+      {Key? key,
+      required this.updateTheme,
+      required this.player,
+      required this.isNightMode,
+      required this.initialVolume,
+      required this.updateVolume})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +88,12 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 200),
-                Parametres(updateTheme: updateTheme,  player: player, isNightMode: isNightMode, initialVolume: initialVolume, updateVolume: updateVolume),
+                Parametres(
+                    updateTheme: updateTheme,
+                    player: player,
+                    isNightMode: isNightMode,
+                    initialVolume: initialVolume,
+                    updateVolume: updateVolume),
               ],
             ),
           ),
