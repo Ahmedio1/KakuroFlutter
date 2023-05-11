@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/constantes.dart';
+import 'accueil/body.dart';
 import 'package:audioplayers/audioplayers.dart';
-
 import 'constantes.dart';
 import 'parametres.dart';
 
@@ -12,6 +13,14 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  /*Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Page d'accueil",
+      theme: themeClair,
+      home: const MyHomePage(),
+    );
+  }*/
   _MyAppState createState() => _MyAppState();
 }
 
@@ -19,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   ThemeData currentTheme = themeSombre;
   final AudioPlayer player = AudioPlayer();
   bool isNightMode = true;
-  double volume = 0.5;
+  double volume = 0.1;
 
   void updateTheme(bool isNightMode) {
     setState(() {
@@ -32,6 +41,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     //_prepareAudio();
+    player.setVolume(volume);
     player.play(AssetSource('wiisportstheme.mp3'));
     player.setReleaseMode(ReleaseMode.loop);
   }
@@ -43,6 +53,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: currentTheme,
       home: Body(
           updateTheme: updateTheme,
@@ -55,6 +66,15 @@ class _MyAppState extends State<MyApp> {
   } //Update volume est un callback qui permet de mettre à jour le volume
 }
 
+/*
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Body(),
+      //bottomNavigationBar: BottomBar(),
 class Body extends StatelessWidget {
   final void Function(bool) updateTheme;
   final AudioPlayer player;
@@ -101,4 +121,4 @@ class Body extends StatelessWidget {
       ),
     );
   }
-}
+}*/

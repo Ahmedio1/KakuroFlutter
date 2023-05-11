@@ -6,17 +6,24 @@ class Volume extends StatefulWidget {
   final double initialVolume;
   final void Function(double) updateVolume;
 
-  const Volume({Key? key, required this.player, required this.initialVolume, required this.updateVolume}) : super(key: key);
+  const Volume(
+      {Key? key,
+      required this.player,
+      required this.initialVolume,
+      required this.updateVolume})
+      : super(key: key);
 
   @override
-  _VolumeState createState() => _VolumeState(player: player, initialVolume: initialVolume);
+  _VolumeState createState() =>
+      _VolumeState(player: player, initialVolume: initialVolume);
 }
 
 class _VolumeState extends State<Volume> {
   double _currentVolume;
   final AudioPlayer player;
 
-  _VolumeState({required this.player, required double initialVolume}) : _currentVolume = initialVolume;
+  _VolumeState({required this.player, required double initialVolume})
+      : _currentVolume = initialVolume;
 
   @override
   void initState() {
@@ -44,8 +51,10 @@ class _VolumeState extends State<Volume> {
             setState(() {
               _currentVolume = value; //Mise à jour de l'état local du volume
             });
-            widget.player.setVolume(_currentVolume); //Mise à jour du volume de l'audio
-            widget.updateVolume(value); ////Update volume est un callback qui permet de mettre à jour l'état global du volume
+            widget.player
+                .setVolume(_currentVolume); //Mise à jour du volume de l'audio
+            widget.updateVolume(
+                value); ////Update volume est un callback qui permet de mettre à jour l'état global du volume
           },
           activeColor: Theme.of(context).colorScheme.onSecondary,
           inactiveColor: Theme.of(context).colorScheme.onBackground,

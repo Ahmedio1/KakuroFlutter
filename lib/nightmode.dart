@@ -6,7 +6,9 @@ class Nightmode extends StatefulWidget {
   final void Function(bool) updateTheme;
   final bool isNightMode;
 
-  const Nightmode({Key? key, required this.updateTheme, required this.isNightMode}) : super(key: key);
+  const Nightmode(
+      {Key? key, required this.updateTheme, required this.isNightMode})
+      : super(key: key);
 
   @override
   _NightmodeState createState() => _NightmodeState();
