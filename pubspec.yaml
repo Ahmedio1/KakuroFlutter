@@ -30,6 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    # Ajouter les plugins pour Firebase
+  firebase_auth: "^4.5.0"
+  cloud_firestore: "^4.6.0"
+  google_sign_in: "^5.2.1" 
 
   google_fonts: ^4.0.3
   audioplayers: ^1.1.0
@@ -38,8 +42,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  audioplayers: ^1.1.0
-
+  firebase_core: ^2.11.0
+dependency_overrides:
+    firebase_core_platform_interface: ^4.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,11 +74,6 @@ flutter:
      - assets/images/avatar.png
      - assets/wiisportstheme.mp3
   #   - images/a_dot_ham.jpeg
-
-  assets:
-      - assets/fond.png
-      - assets/wiisportstheme.mp3
-      - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

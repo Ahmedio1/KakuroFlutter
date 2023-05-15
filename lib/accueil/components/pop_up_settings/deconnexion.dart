@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/auth/googleSignIn.dart';
 
 import '../../../constantes.dart';
 
@@ -13,15 +14,24 @@ class Deconnexion extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.background,
-              borderRadius: BorderRadius.circular(30.0),
+          child: ElevatedButton(
+            onPressed: () async {
+              await AuthService().signOutWithGoogle();
+              Navigator.pop(context, 'Cancel');
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(35.0),
+              ),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              backgroundColor: Theme.of(context).colorScheme.background,
             ),
             child: Text(
               'Se déconnecter',
               style: bullesSecondaireTexte(context),
-            ))
+            ),
+          ),
+        ),
       ],
     );
   }

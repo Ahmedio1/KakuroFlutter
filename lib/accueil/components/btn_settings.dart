@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:kakuro/auth/googleSignIn.dart';
 import 'package:kakuro/nightmode.dart';
 import 'package:kakuro/volume.dart';
 
@@ -56,7 +57,7 @@ class Parametres extends StatelessWidget {
                     Nightmode(
                         updateTheme: updateTheme, isNightMode: isNightMode),
                     const SizedBox(height: 30),
-                    const Deconnexion(),
+                    if (AuthService().isConnected()) const Deconnexion(),
                     const SizedBox(height: 20),
                   ],
                 ),
