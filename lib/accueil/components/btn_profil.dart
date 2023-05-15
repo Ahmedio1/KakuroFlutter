@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/auth/googleSignIn.dart';
-import 'package:kakuro/userbd.dart';
+import 'package:kakuro/BD/userbd.dart';
 
 import '../../constantes.dart';
 import '../../Classe/userclass.dart';

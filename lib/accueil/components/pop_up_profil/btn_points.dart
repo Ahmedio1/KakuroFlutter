@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../auth/googleSignIn.dart';
 import '../../../constantes.dart';
-import '../../../userbd.dart';
+import '../../../BD/userbd.dart';
 
 class BtnPoints extends StatelessWidget {
   BtnPoints({
