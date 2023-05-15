@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/auth/googleSignIn.dart';
 
 import '../../../constantes.dart';
 
@@ -20,7 +21,7 @@ class BtnPseudo extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
-            '',
+            AuthService().getUser().displayName.toString(),
             style: bullesBleuCielTexte,
           ),
         ),

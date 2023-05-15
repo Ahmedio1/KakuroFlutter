@@ -4,8 +4,14 @@ import 'accueil/body.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'constantes.dart';
 import 'parametres.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -82,7 +88,14 @@ class Body extends StatelessWidget {
   final double initialVolume;
   final void Function(double) updateVolume;
 
-  const Body({Key? key, required this.updateTheme, required this.player, required this.isNightMode, required this.initialVolume, required this.updateVolume}) : super(key: key);
+  const Body(
+      {Key? key,
+      required this.updateTheme,
+      required this.player,
+      required this.isNightMode,
+      required this.initialVolume,
+      required this.updateVolume})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +114,12 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 200),
-                Parametres(updateTheme: updateTheme,  player: player, isNightMode: isNightMode, initialVolume: initialVolume, updateVolume: updateVolume),
+                Parametres(
+                    updateTheme: updateTheme,
+                    player: player,
+                    isNightMode: isNightMode,
+                    initialVolume: initialVolume,
+                    updateVolume: updateVolume),
               ],
             ),
           ),

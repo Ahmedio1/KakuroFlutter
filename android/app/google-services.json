@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "596572487077",
+    "project_id": "kakurodb-41e90",
+    "storage_bucket": "kakurodb-41e90.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596572487077:android:6aa3d512544430dbe8fc4c",
+        "android_client_info": {
+          "package_name": "com.example.kakuro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596572487077-ct7ol5222e70bdt2phrgorcddt2jmtgm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kakuro",
+            "certificate_hash": "2c8a31879cbc14dd00093b1557b11776263aa027"
+          }
+        },
+        {
+          "client_id": "596572487077-5ubnc8d32rdjqjhle8vueler0o80oo6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTewxg-BQtSvvd_CHVlK7bQvqPRhD3jwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596572487077-5ubnc8d32rdjqjhle8vueler0o80oo6a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "596572487077-i92uplhfb62meqj6t2ha19k09qd0s7ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kakuro"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596572487077:android:fba72d7a567619e1e8fc4c",
+        "android_client_info": {
+          "package_name": "com.example.kakuro_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596572487077-c0j647gvmt61ot7aksr6o5uloho0s0rq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kakuro_flutter",
+            "certificate_hash": "2c8a31879cbc14dd00093b1557b11776263aa027"
+          }
+        },
+        {
+          "client_id": "596572487077-5ubnc8d32rdjqjhle8vueler0o80oo6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTewxg-BQtSvvd_CHVlK7bQvqPRhD3jwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596572487077-5ubnc8d32rdjqjhle8vueler0o80oo6a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "596572487077-i92uplhfb62meqj6t2ha19k09qd0s7ll.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kakuro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
