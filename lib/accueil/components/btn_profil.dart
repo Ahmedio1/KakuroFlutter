@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/auth/googleSignIn.dart';
+import 'package:kakuro/userbd.dart';
 
 import '../../constantes.dart';
+import '../../Classe/userclass.dart';
 import 'pop_up_profil/btn_points.dart';
 import 'pop_up_profil/btn_pseudo.dart';
 
@@ -23,6 +26,18 @@ class BtnProfil extends StatelessWidget {
           isConnected = AuthService().isConnected();
           if (!isConnected) {
             AuthService().signInWithGoogle();
+            Future.delayed(const Duration(seconds: 10), () {
+              User? user = AuthService().getUser();
+              UserBD().isUserPresent(user!.uid).then((value) {
+                if (!value) {
+                  UserBD().addUser(UserClass(
+                      displayName: user.displayName,
+                      email: user.email,
+                      uid: user.uid,
+                      points: 0));
+                }
+              });
+            });
           } else {
             showDialog<String>(
               context: context,
