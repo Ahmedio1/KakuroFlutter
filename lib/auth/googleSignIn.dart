@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kakuro/Classe/userclass.dart';
+import 'package:kakuro/userbd.dart';
 
 class AuthService {
   signInWithGoogle() async {
     final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
     final GoogleSignInAuthentication gAuth = await gUser!.authentication;
-    final GoogleSignInAccount? user = await GoogleSignIn().currentUser;
-    print(gUser);
     final credential = GoogleAuthProvider.credential(
       accessToken: gAuth.accessToken,
       idToken: gAuth.idToken,
     );
+// Ajout de l'utilisateur dans la base de données
 
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
