@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kakuro/auth/googleSignIn.dart';
-import 'package:kakuro/auth/signin.dart';
 import 'package:kakuro/Classe/userclass.dart';
 
 class UserBD {
