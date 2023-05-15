@@ -64,4 +64,54 @@ class UserBD {
       return 0;
     }
   }
+
+  Future<List<UserClass>> getAllUsers() async {
+    // Récupère une référence à la collection 'User'
+    CollectionReference userCollection = firestore.collection('User');
+
+    // Récupère tous les documents de la collection
+    QuerySnapshot querySnapshot = await userCollection.get();
+
+    // Convertit chaque document en une instance de UserClass et les ajoute à une liste
+    List<UserClass> users = querySnapshot.docs.map((doc) {
+      return UserClass(
+        displayName: doc.get('nom'),
+        email: doc.get('email'),
+        uid: doc.get('uid'),
+        points: doc.get('points'),
+      );
+    }).toList();
+
+    return users;
+  }
+
+  Future<Map<String, int>> get5UsersNamesAndPoints() async {
+    // Récupère une référence à la collection 'User'
+    CollectionReference userCollection = firestore.collection('User');
+
+    // Récupère tous les documents de la collection
+    final QuerySnapshot snapshot =
+        await userCollection.orderBy('points', descending: true).limit(5).get();
+    final List<DocumentSnapshot> documents = snapshot.docs;
+
+    // Crée une map où la clé est le nom de l'utilisateur et la valeur est ses points
+    Map<String, int> usersNamesAndPoints = {};
+    for (var doc in documents) {
+      usersNamesAndPoints[doc.get('nom')] = doc.get('points');
+    }
+
+    // Obtenir le current user
+    final User firebaseUser = FirebaseAuth.instance.currentUser!;
+    if (firebaseUser != null) {
+      // Récupérer les points du current user
+      final int currentUserPoints = await getUserPoints(firebaseUser.uid);
+
+      // Ajouter le currentUser à la map seulement s'il n'y est pas déjà
+      if (!usersNamesAndPoints.containsKey(firebaseUser.displayName)) {
+        usersNamesAndPoints[firebaseUser.displayName!] = currentUserPoints;
+      }
+    }
+
+    return usersNamesAndPoints;
+  }
 }

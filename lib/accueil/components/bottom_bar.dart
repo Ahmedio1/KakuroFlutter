@@ -32,7 +32,7 @@ class BottomBar extends StatelessWidget {
           const Expanded(
             child: Center(child: BtnProfil()),
           ),
-          const Expanded(
+          Expanded(
             child: Center(child: BtnClassement()),
           ),
           Expanded(
