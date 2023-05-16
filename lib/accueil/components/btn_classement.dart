@@ -34,9 +34,9 @@ class _BtnClassementState extends State<BtnClassement> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return CircularProgressIndicator(); // Show a loading spinner while waiting
+      return CircularProgressIndicator(); // Afficher un spinner de chargement en attendant
     } else {
-      // Sort scores in descending order
+      // Trier les scores par ordre décroissant
       final sortedScores = scores.entries.toList()
         ..sort((a, b) => b.value.compareTo(a.value));
 
@@ -72,11 +72,18 @@ class _BtnClassementState extends State<BtnClassement> {
                       final joueur = entry.key;
                       final points = entry.value;
 
-                      return ListTile(
-                        title: Text(
-                          '$joueur - $points points',
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.onPrimary),
+                      return Container(
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(35),
+                        ),
+                        child: ListTile(
+                          title: Text(
+                            '$joueur - $points points',
+                            style: bullesSecondaireTexte(context),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       );
                     },

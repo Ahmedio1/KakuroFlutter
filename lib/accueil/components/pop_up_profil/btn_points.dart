@@ -17,7 +17,7 @@ class BtnPoints extends StatelessWidget {
       children: [
         Text('Points : ', style: kakuroPad(context)),
         Container(
-          width: 200,
+          width: 180,
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(10),
@@ -36,6 +36,7 @@ class BtnPoints extends StatelessWidget {
                 return Text(
                   snapshot.data.toString(),
                   style: bullesBleuCielTexte,
+                  textAlign: TextAlign.center,
                 );
               }
             },
