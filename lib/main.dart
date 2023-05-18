@@ -30,7 +30,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   ThemeData currentTheme = themeSombre;
   final AudioPlayer player = AudioPlayer();
   bool isNightMode = true;
@@ -46,10 +46,29 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    //_prepareAudio();
+    WidgetsBinding.instance!.addObserver(this);
     player.setVolume(volume);
     player.play(AssetSource('wiisportstheme.mp3'));
     player.setReleaseMode(ReleaseMode.loop);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+
+    if (state == AppLifecycleState.resumed) {
+      player.resume();
+    } else if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.detached) {
+      player.pause();
+    }
   }
 
   /*Future<void> _prepareAudio() async {
