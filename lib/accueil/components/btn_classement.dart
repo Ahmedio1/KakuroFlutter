@@ -10,7 +10,7 @@ class BtnClassement extends StatefulWidget {
 
 class _BtnClassementState extends State<BtnClassement> {
   UserBD userbd = UserBD();
-  Map<String, int> scores = {};
+  Map<String, Map<String, int>> scores = {};
   bool isLoading = true;
 
   @override
@@ -34,11 +34,12 @@ class _BtnClassementState extends State<BtnClassement> {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return CircularProgressIndicator(); // Afficher un spinner de chargement en attendant
+      return CircularProgressIndicator();
     } else {
       // Trier les scores par ordre décroissant
       final sortedScores = scores.entries.toList()
-        ..sort((a, b) => b.value.compareTo(a.value));
+        ..sort((a, b) =>
+            (b.value['points'] ?? 0).compareTo(a.value['points'] ?? 0));
 
       return Container(
         alignment: Alignment.center,
@@ -70,7 +71,8 @@ class _BtnClassementState extends State<BtnClassement> {
                     itemBuilder: (BuildContext context, int index) {
                       final entry = sortedScores[index];
                       final joueur = entry.key;
-                      final points = entry.value;
+                      final points = entry.value['points'];
+                      final rank = entry.value['rang'];
 
                       return Container(
                         margin: const EdgeInsets.symmetric(vertical: 10),
@@ -80,7 +82,7 @@ class _BtnClassementState extends State<BtnClassement> {
                         ),
                         child: ListTile(
                           title: Text(
-                            '$joueur - $points points',
+                            '$rank. $joueur - $points points',
                             style: bullesSecondaireTexte(context),
                             textAlign: TextAlign.center,
                           ),

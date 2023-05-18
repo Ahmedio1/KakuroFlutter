@@ -34,7 +34,8 @@ class BtnProfil extends StatelessWidget {
                       displayName: user.displayName,
                       email: user.email,
                       uid: user.uid,
-                      points: 0));
+                      points: 0,
+                      rang: 0));
                 }
               });
             });
