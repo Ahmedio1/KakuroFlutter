@@ -20,6 +20,7 @@ class Grille extends StatefulWidget {
 
 class _GrilleState extends State<Grille> {
   late Timer _timer;
+  late int lastIndex = 1;
   // * Getters
   int getTaille() {
     return this.widget.taille;
@@ -38,8 +39,13 @@ class _GrilleState extends State<Grille> {
   }
 
   void selectionnerCase(int index) {
+    print(lastIndex);
+    if (lastIndex != index) {
+      widget.cases[lastIndex].estSelectionee = false;
+    }
     widget.caseSelectionnee = index;
     widget.cases[index].estSelectionee = true;
+    lastIndex = index;
     print("Case selectionnee : " + index.toString());
   }
 
@@ -127,7 +133,6 @@ class _GrilleState extends State<Grille> {
                     child: TextButton(
                   onPressed: () {
                     setState(() {
-                      print(c.valeur);
                       selectionnerCase(indexGrille);
                     });
                   },

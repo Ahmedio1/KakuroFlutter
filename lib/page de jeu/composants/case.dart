@@ -6,7 +6,7 @@ class Case {
   bool estSelectionee = false;
   List<int> infos = List.filled(2, 0); // 0: droite, 1: bas
 
-  Case(this.valeur, this.estBloquee, this.infos);
+  Case(this.valeur, this.estBloquee, this.infos, [param3]);
 
 // * Setters
   void setValeur(int valeur) {

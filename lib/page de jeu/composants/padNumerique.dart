@@ -146,11 +146,10 @@ class Reset extends StatefulWidget {
 class _ResetState extends State<Reset> {
   void resetGrid(grille) {
     for (int i = 0; i < grille.cases.length; i++) {
-      print(grille.cases[i].estBloquee);
-      print(grille.cases[i].infos == [0, 0]);
       if (grille.cases[i].estBloquee == false &&
           listEquals(grille.cases[i].infos, [0, 0])) {
         grille.cases[i].valeur = 0;
+        grille.cases[i].estSelectionee = false;
       }
     }
   }

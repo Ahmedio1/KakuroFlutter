@@ -1,24 +1,43 @@
 import 'dart:async';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:kakuro/accueil/components/btn_profil.dart';
+import 'package:kakuro/accueil/components/btn_regles.dart';
+import 'package:kakuro/accueil/components/btn_settings.dart';
 import '../../constantes.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const MyAppBar({Key? key}) : super(key: key);
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
+
+  const MyAppBar(
+      {Key? key,
+      required this.updateTheme,
+      required this.player,
+      required this.isNightMode,
+      required this.initialVolume,
+      required this.updateVolume})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     MyTimer timer = MyTimer();
     return AppBar(
-      elevation: 20,
-      backgroundColor: themeSombre.colorScheme.primary,
-      title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
-        SizedBox(width: 0.3 * largeurEcran(context)),
-        timer,
-        SizedBox(width: 0.3 * largeurEcran(context)),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.settings)),
-      ]),
-    );
+        elevation: 20,
+        backgroundColor: themeSombre.colorScheme.primary,
+        title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          BtnProfil(),
+          timer,
+          Parametres(
+              initialVolume: initialVolume,
+              isNightMode: isNightMode,
+              updateTheme: updateTheme,
+              updateVolume: updateVolume,
+              player: player)
+        ]));
   }
 
   @override
@@ -33,6 +52,11 @@ class MyTimer extends StatefulWidget {
 class _MyTimerState extends State<MyTimer> {
   int _seconds = 0;
   Timer? _timer;
+
+  void initState() {
+    super.initState();
+    startTimer();
+  }
 
   @override
   void dispose() {

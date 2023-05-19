@@ -1,4 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:kakuro/BD/gridbd.dart';
 import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
 
 import '../constantes.dart';
@@ -8,47 +10,78 @@ import 'composants/appBar.dart';
 import 'composants/padNumerique.dart';
 
 class PageDeJeu extends StatefulWidget {
-  const PageDeJeu({super.key});
+  final int taille;
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
+
+  PageDeJeu(
+    this.taille,
+    this.updateTheme,
+    this.player,
+    this.isNightMode,
+    this.initialVolume,
+    this.updateVolume, {
+    super.key,
+  });
 
   @override
   _PageDeJeuState createState() => _PageDeJeuState();
 }
 
 class _PageDeJeuState extends State<PageDeJeu> {
-  Grille grille = Grille(
-      4,
-      [
-        Case(5, true, [0, 0]),
-        Case(4, false, [0, 23]),
-        Case(3, false, [0, 12]),
-        Case(2, false, [0, 9]),
-        Case(1, false, [23, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [12, 0]),
-        Case(8, false, [0, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [9, 0]),
-        Case(3, false, [0, 0]),
-        Case(0, false, [0, 0]),
-        Case(0, false, [0, 0]),
-      ],
-      false);
-  late MyPad pad;
+  late Grille grille = Grille(1, [], false);
+  late MyPad pad = MyPad(grille: grille);
 
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration(milliseconds: 1), () {
+      initializeGrid();
+    });
+
+    /*
+    grille = Grille(
+        4,
+        [
+          Case(5, true, [0, 0]),
+          Case(4, false, [0, 35]),
+          Case(3, false, [0, 19]),
+          Case(2, false, [0, 9]),
+          Case(1, false, [23, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [12, 0]),
+          Case(8, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [9, 0]),
+          Case(3, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+        ],
+        false);*/
+  }
+
+  Future<void> initializeGrid() async {
+    grille = await GridBD().getRandomGridByLength(widget.taille);
     pad = MyPad(grille: grille);
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     // * Variables
-    MyAppBar appBar = const MyAppBar();
-
+    MyAppBar appBar = MyAppBar(
+      updateTheme: widget.updateTheme,
+      player: widget.player,
+      isNightMode: widget.isNightMode,
+      initialVolume: widget.initialVolume,
+      updateVolume: widget.updateVolume,
+    );
     BoutonValider boutonValider = const BoutonValider();
 
     //Affichage
