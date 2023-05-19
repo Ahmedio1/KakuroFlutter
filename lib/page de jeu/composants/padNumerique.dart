@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/page%20de%20jeu/composants/grille.dart';
 import '../../constantes.dart';
 
 class MyPad extends StatefulWidget {
@@ -12,9 +13,17 @@ class _MyPadState extends State<MyPad> {
   @override
   Widget build(BuildContext context) {
     // * COMPOSANTS
-    Gomme gomme = Gomme();
-    Reset reset = Reset();
-    Indice indice = Indice();
+    Gomme gomme = const Gomme();
+    Reset reset = const Reset();
+    Indice indice = const Indice();
+
+    Grille grille = Grille(4, [], false);
+
+    void changerValeurCase(int index, int valeur) {
+      if (grille.caseSelectionnee != -1) {
+        grille.cases[index].valeur = valeur;
+      }
+    }
 
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15),
@@ -22,8 +31,8 @@ class _MyPadState extends State<MyPad> {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         crossAxisCount: 6,
-        children: List.generate(12, (index) {
-          if (index < 9) {
+        children: List.generate(12, (indexPad) {
+          if (indexPad < 9) {
             return Container(
                 width: 0.1 * largeurEcran(context),
                 height: 0.1 * largeurEcran(context),
@@ -35,15 +44,20 @@ class _MyPadState extends State<MyPad> {
                 child: Center(
                     child: TextButton(
                         onPressed: () {
-                          print(index + 1);
+                          print(indexPad + 1);
+                          print(grille.caseSelectionnee);
+                          setState(() {
+                            changerValeurCase(
+                                grille.caseSelectionnee, indexPad);
+                          });
                         },
                         child: Text(
-                          (index + 1).toString(),
+                          (indexPad + 1).toString(),
                           style: bullesSecondaireTexte(context),
                         ))));
-          } else if (index == 9) {
+          } else if (indexPad == 9) {
             return indice;
-          } else if (index == 10) {
+          } else if (indexPad == 10) {
             return gomme;
           } else {
             return reset;
@@ -110,6 +124,15 @@ class Reset extends StatefulWidget {
 }
 
 class _ResetState extends State<Reset> {
+  void resetGrid(grille) {
+    for (int i = 0; i < grille.cases.length; i++) {
+      if (grille.cases[i].estBloquee == false &&
+          grille.cases[i].infos == [0, 0]) {
+        grille.cases[i].valeur = 0;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -131,6 +154,9 @@ class _ResetState extends State<Reset> {
         ElevatedButton(
             onPressed: () {
               print("RESET");
+              setState(() {
+                resetGrid(grille);
+              });
             },
             style: ElevatedButton.styleFrom(
               fixedSize: Size(

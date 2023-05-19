@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
+
 import '../constantes.dart';
 import 'composants/grille.dart';
 import 'composants/appBar.dart';
@@ -17,8 +18,8 @@ class _PageDeJeuState extends State<PageDeJeu> {
   Widget build(BuildContext context) {
     // * Variables
     MyAppBar appBar = const MyAppBar();
-    Grille grille = Grille([3, 3], [], false);
-    MyPad pad = MyPad();
+    Grille grille = Grille(4, [], false);
+    MyPad pad = const MyPad();
     BoutonValider boutonValider = const BoutonValider();
 
     //Affichage
