@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
 
 import '../constantes.dart';
+import 'composants/case.dart';
 import 'composants/grille.dart';
 import 'composants/appBar.dart';
 import 'composants/padNumerique.dart';
@@ -14,12 +15,40 @@ class PageDeJeu extends StatefulWidget {
 }
 
 class _PageDeJeuState extends State<PageDeJeu> {
+  Grille grille = Grille(
+      4,
+      [
+        Case(5, true, [0, 0]),
+        Case(4, false, [0, 23]),
+        Case(3, false, [0, 12]),
+        Case(2, false, [0, 9]),
+        Case(1, false, [23, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [12, 0]),
+        Case(8, false, [0, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [9, 0]),
+        Case(3, false, [0, 0]),
+        Case(0, false, [0, 0]),
+        Case(0, false, [0, 0]),
+      ],
+      false);
+  late MyPad pad;
+
+  @override
+  void initState() {
+    super.initState();
+    pad = MyPad(grille: grille);
+  }
+
   @override
   Widget build(BuildContext context) {
     // * Variables
     MyAppBar appBar = const MyAppBar();
-    Grille grille = Grille(4, [], false);
-    MyPad pad = const MyPad();
+
     BoutonValider boutonValider = const BoutonValider();
 
     //Affichage

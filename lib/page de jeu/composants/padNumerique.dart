@@ -1,29 +1,43 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/page%20de%20jeu/composants/grille.dart';
 import '../../constantes.dart';
+import '../page_de_jeu.dart';
 
 class MyPad extends StatefulWidget {
-  const MyPad({super.key});
+  final Grille grille;
+
+  const MyPad({super.key, required this.grille});
 
   @override
   _MyPadState createState() => _MyPadState();
 }
 
 class _MyPadState extends State<MyPad> {
+  int numberSelected = 0;
+
+  void setNumberSelected(int number) {
+    numberSelected = number + 1;
+  }
+
+  int getNumberPad() {
+    return numberSelected;
+  }
+
+  void changerValeurCase(int index, int valeur) {
+    if (widget.grille.caseSelectionnee != -1) {
+      widget.grille.cases[index].valeur = valeur;
+    }
+    widget.grille.caseSelectionnee = -1;
+    widget.grille.cases[index].estSelectionee = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     // * COMPOSANTS
-    Gomme gomme = const Gomme();
-    Reset reset = const Reset();
-    Indice indice = const Indice();
-
-    Grille grille = Grille(4, [], false);
-
-    void changerValeurCase(int index, int valeur) {
-      if (grille.caseSelectionnee != -1) {
-        grille.cases[index].valeur = valeur;
-      }
-    }
+    Gomme gomme = Gomme(grille: widget.grille);
+    Reset reset = Reset(grille: widget.grille);
+    Indice indice = Indice(grille: widget.grille);
 
     return Padding(
       padding: const EdgeInsets.only(left: 15.0, right: 15),
@@ -44,12 +58,9 @@ class _MyPadState extends State<MyPad> {
                 child: Center(
                     child: TextButton(
                         onPressed: () {
-                          print(indexPad + 1);
-                          print(grille.caseSelectionnee);
-                          setState(() {
-                            changerValeurCase(
-                                grille.caseSelectionnee, indexPad);
-                          });
+                          setNumberSelected(indexPad);
+                          changerValeurCase(
+                              widget.grille.caseSelectionnee, numberSelected);
                         },
                         child: Text(
                           (indexPad + 1).toString(),
@@ -69,13 +80,19 @@ class _MyPadState extends State<MyPad> {
 }
 
 class Gomme extends StatefulWidget {
-  const Gomme({super.key});
+  final Grille grille;
+  const Gomme({required this.grille, super.key});
 
   @override
   _GommeState createState() => _GommeState();
 }
 
 class _GommeState extends State<Gomme> {
+  void remove(index) {
+    widget.grille.cases[index].valeur = 0;
+    widget.grille.cases[index].estSelectionee = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -100,7 +117,9 @@ class _GommeState extends State<Gomme> {
         ),
         ElevatedButton(
             onPressed: () {
-              print("GOMME");
+              setState(() {
+                remove(widget.grille.caseSelectionnee);
+              });
             },
             style: ElevatedButton.styleFrom(
               fixedSize: Size(
@@ -117,7 +136,8 @@ class _GommeState extends State<Gomme> {
 }
 
 class Reset extends StatefulWidget {
-  const Reset({super.key});
+  final Grille grille;
+  const Reset({required this.grille, super.key});
 
   @override
   _ResetState createState() => _ResetState();
@@ -126,8 +146,10 @@ class Reset extends StatefulWidget {
 class _ResetState extends State<Reset> {
   void resetGrid(grille) {
     for (int i = 0; i < grille.cases.length; i++) {
+      print(grille.cases[i].estBloquee);
+      print(grille.cases[i].infos == [0, 0]);
       if (grille.cases[i].estBloquee == false &&
-          grille.cases[i].infos == [0, 0]) {
+          listEquals(grille.cases[i].infos, [0, 0])) {
         grille.cases[i].valeur = 0;
       }
     }
@@ -153,9 +175,8 @@ class _ResetState extends State<Reset> {
         ),
         ElevatedButton(
             onPressed: () {
-              print("RESET");
               setState(() {
-                resetGrid(grille);
+                resetGrid(widget.grille);
               });
             },
             style: ElevatedButton.styleFrom(
@@ -173,7 +194,8 @@ class _ResetState extends State<Reset> {
 }
 
 class Indice extends StatefulWidget {
-  const Indice({super.key});
+  final Grille grille;
+  const Indice({required this.grille, super.key});
 
   @override
   _IndiceState createState() => _IndiceState();

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:kakuro/page%20de%20jeu/composants/padNumerique.dart';
 
 import '../../constantes.dart';
 import 'case.dart';
@@ -16,6 +19,7 @@ class Grille extends StatefulWidget {
 }
 
 class _GrilleState extends State<Grille> {
+  late Timer _timer;
   // * Getters
   int getTaille() {
     return this.widget.taille;
@@ -29,43 +33,41 @@ class _GrilleState extends State<Grille> {
     return this.widget.estTerminee;
   }
 
-  void changerValeurCase(int index, int valeur) {
-    widget.cases[index].valeur = valeur;
+  Grille getGrille() {
+    return this.widget;
+  }
+
+  void selectionnerCase(int index) {
+    widget.caseSelectionnee = index;
+    widget.cases[index].estSelectionee = true;
+    print("Case selectionnee : " + index.toString());
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _timer = Timer.periodic(
+      Duration(milliseconds: 100),
+      (timer) {
+        setState(() {
+          // update your state here
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel(); // dispose of the timer to prevent memory leaks
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Case> cases = [
-      Case(5, true, [0, 0]),
-      Case(4, false, [0, 23]),
-      Case(3, false, [0, 12]),
-      Case(2, false, [0, 9]),
-      Case(1, false, [23, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [12, 0]),
-      Case(8, false, [0, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [9, 0]),
-      Case(3, false, [0, 0]),
-      Case(0, false, [0, 0]),
-      Case(0, false, [0, 0]),
-    ];
-
-    void selectionnerCase(int index) {
-      widget.caseSelectionnee = index;
-      cases[index].estSelectionee = true;
-      print("Case selectionnee : " + index.toString());
-    }
-
-    var size = 4;
-
-    double largeurCase = 0.9 * largeurEcran(context) / size;
+    double largeurCase = 0.9 * largeurEcran(context) / widget.taille;
 
     //grille de jeu
-    Grille grille = Grille(size, cases, false);
 
     return Center(
       child: Container(
@@ -75,9 +77,10 @@ class _GrilleState extends State<Grille> {
         child: GridView.count(
           addRepaintBoundaries:
               false, //pour ne pas avoir une modification de bordures
-          crossAxisCount: size, //retour a la ligne a partir de size case
-          children: List.generate(cases.length, (indexGrille) {
-            final c = cases[indexGrille];
+          crossAxisCount:
+              widget.taille, //retour a la ligne a partir de widget.taille case
+          children: List.generate(widget.cases.length, (indexGrille) {
+            final c = widget.cases[indexGrille];
 
             // ! Case non jouable
             if (c.estBloquee == true) {
@@ -124,6 +127,7 @@ class _GrilleState extends State<Grille> {
                     child: TextButton(
                   onPressed: () {
                     setState(() {
+                      print(c.valeur);
                       selectionnerCase(indexGrille);
                     });
                   },
