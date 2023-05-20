@@ -15,17 +15,17 @@ class _BoutonValiderState extends State<BoutonValider> {
       padding: EdgeInsets.only(bottom: 0.18 * largeurEcran(context)),
       child: TextButton(
           style: TextButton.styleFrom(
-              elevation: 20,
-              backgroundColor: themeSombre.colorScheme.primary,
+              //elevation: 10,
+              backgroundColor: Theme.of(context).colorScheme.primary,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(30)),
               padding: EdgeInsets.symmetric(
                   horizontal: 0.08 * largeurEcran(context),
                   vertical: 0.03 * largeurEcran(context))),
           onPressed: () {
             print("Valider");
           },
-          child: Text('Valider', style: bullesSecondaireTexte(context))),
+          child: Text('Valider', style: bullesTexte(context))),
     );
   }
 }

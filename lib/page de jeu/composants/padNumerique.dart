@@ -51,10 +51,10 @@ class _MyPadState extends State<MyPad> {
                 width: 0.1 * largeurEcran(context),
                 height: 0.1 * largeurEcran(context),
                 decoration: BoxDecoration(
-                    color: themeSombre.colorScheme.primary,
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                        color: themeSombre.colorScheme.secondary, width: 2)),
+                        color: Theme.of(context).colorScheme.background, width: 2)),
                 child: Center(
                     child: TextButton(
                         onPressed: () {
@@ -64,7 +64,7 @@ class _MyPadState extends State<MyPad> {
                         },
                         child: Text(
                           (indexPad + 1).toString(),
-                          style: bullesSecondaireTexte(context),
+                          style: kakuroPad(context),
                         ))));
           } else if (indexPad == 9) {
             return indice;
@@ -99,9 +99,9 @@ class _GommeState extends State<Gomme> {
       width: 0.2 * largeurEcran(context),
       height: 0.2 * largeurEcran(context),
       decoration: BoxDecoration(
-        color: themeSombre.colorScheme.primary,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: themeSombre.colorScheme.secondary, width: 2),
+        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(
@@ -155,21 +155,22 @@ class _ResetState extends State<Reset> {
   }
 
   @override
+  //Bouton retour
   Widget build(BuildContext context) {
     return Container(
       width: 0.2 * largeurEcran(context),
       height: 0.2 * largeurEcran(context),
       decoration: BoxDecoration(
-        color: themeSombre.colorScheme.primary,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: themeSombre.colorScheme.secondary, width: 2),
+        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(
           child: Icon(
             Icons.refresh,
             size: 0.1 * largeurEcran(context),
-            color: themeSombre.colorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
         ElevatedButton(
@@ -207,9 +208,9 @@ class _IndiceState extends State<Indice> {
       width: 0.2 * largeurEcran(context),
       height: 0.2 * largeurEcran(context),
       decoration: BoxDecoration(
-        color: themeSombre.colorScheme.primary,
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: themeSombre.colorScheme.secondary, width: 2),
+        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(

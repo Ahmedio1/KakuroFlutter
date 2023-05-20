@@ -26,10 +26,10 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     MyTimer timer = MyTimer();
     return AppBar(
-        elevation: 20,
-        backgroundColor: themeSombre.colorScheme.primary,
+        elevation: 10, // ombre
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          BtnProfil(),
+          //BtnProfil(),
           timer,
           Parametres(
               initialVolume: initialVolume,
@@ -99,7 +99,7 @@ class _MyTimerState extends State<MyTimer> {
     return Center(
       child: Text(
         timerText,
-        style: const TextStyle(fontSize: 20),
+        style: bullesTexte(context),
       ),
     );
   }
