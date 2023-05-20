@@ -13,6 +13,8 @@ class Parametres extends StatelessWidget {
   final bool isNightMode;
   final double initialVolume;
   final void Function(double) updateVolume;
+  final double buttonSize;
+  final bool hasRoundedContainer;
 
   const Parametres(
       {Key? key,
@@ -20,7 +22,10 @@ class Parametres extends StatelessWidget {
       required this.player,
       required this.isNightMode,
       required this.initialVolume,
-      required this.updateVolume})
+      required this.updateVolume,
+      this.buttonSize = 70, // Valeur par défaut 70
+      this.hasRoundedContainer = true, // Valeur par défaut true
+    })
       : super(key: key);
 
   @override
@@ -66,14 +71,18 @@ class Parametres extends StatelessWidget {
           ),
         ),
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(35.0),
-          ),
+          elevation: hasRoundedContainer 
+            ? 2
+            : 0,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(35.0)),
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           backgroundColor: Theme.of(context).colorScheme.primary,
         ),
+
         child: Icon(Icons.settings,
-            color: Theme.of(context).colorScheme.background, size: 70),
+            color: Theme.of(context).colorScheme.background, 
+            size: buttonSize
+        ),
       ),
     );
   }

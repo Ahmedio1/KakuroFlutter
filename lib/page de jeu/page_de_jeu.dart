@@ -2,9 +2,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/BD/gridbd.dart';
 import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
+import 'package:kakuro/page%20de%20jeu/composants/case.dart';
 
 import '../constantes.dart';
-import 'composants/case.dart';
 import 'composants/grille.dart';
 import 'composants/appBar.dart';
 import 'composants/padNumerique.dart';
@@ -41,12 +41,15 @@ class _PageDeJeuState extends State<PageDeJeu> {
     Future.delayed(Duration(milliseconds: 1), () {
       initializeGrid();
     });
+    //GridBD().addGrid(grille); //Decommenter cette ligne pour l'ajout de la grille dans la Base de données
 
-    /*
-    grille = Grille(
-        4,
+    
+
+  
+    /*grille = Grille(
+        4, //Taille
         [
-          Case(5, true, [0, 0]),
+          Case(5, true, [0, 0]), //(valeur pour cases inaccessibles, estVide, [sommeLigne, sommeColonne])
           Case(4, false, [0, 35]),
           Case(3, false, [0, 19]),
           Case(2, false, [0, 9]),
@@ -60,6 +63,55 @@ class _PageDeJeuState extends State<PageDeJeu> {
           Case(0, false, [0, 0]),
           Case(0, false, [9, 0]),
           Case(3, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+        ],
+        false);*/
+
+      //Utiliser ce code pour l'ajout d'une grille dans la base de données : 
+      /*
+      grille=Grille(
+        6,
+        [
+          Case(0, true, [0, 0]), //(valeur pour cases inaccessibles, estVide, [sommeLigne, sommeColonne])
+          Case(0, false, [0, 6]),
+          Case(0, false, [0, 14]),
+          Case(0, false, [0, 32]),
+          Case(0, true, [0, 0]),
+          Case(0, true, [0, 0]),
+
+          Case(0, false, [16, 0]),
+          Case(0, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(9, false, [0, 0]),
+          Case(0, false, [0, 27]),
+          Case(0, false, [0, 26]),
+
+          Case(0, false, [32, 0]),
+          Case(0, false, [0, 0]),
+          Case(7, false, [0, 0]),
+          Case(5, false, [0, 0]),
+          Case(8, false, [0, 0]),
+          Case(9, false, [0, 0]),
+
+          Case(0, false, [17, 0]),
+          Case(1, false, [0, 0]),
+          Case(3, false, [0, 0]),
+          Case(0, false, [0, 0]),
+          Case(7, false, [0, 0]),
+          Case(0, false, [0, 0]),
+
+          Case(0, true, [0, 0]),
+          Case(0, true, [0, 0]),
+          Case(0, false, [16, 0]),
+          Case(8, false, [0, 0]),
+          Case(6, false, [0, 0]),
+          Case(0, false, [0, 0]),
+
+          Case(0, true, [0, 0]),
+          Case(0, true, [0, 0]),
+          Case(0, false, [24, 0]),
+          Case(0, false, [0, 0]),
           Case(0, false, [0, 0]),
           Case(0, false, [0, 0]),
         ],
@@ -91,14 +143,14 @@ class _PageDeJeuState extends State<PageDeJeu> {
           Container(
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/Sans_titre_1.png'),
+                      image: AssetImage('assets/images/fond.png'),
                       fit: BoxFit.cover)),
               constraints: const BoxConstraints.expand()),
           Column(
             children: [
               SizedBox(height: 0.2 * largeurEcran(context)),
               grille,
-              SizedBox(height: 0.2 * largeurEcran(context)),
+              SizedBox(height: 0.1 * largeurEcran(context)),
               Expanded(child: Container(child: pad)),
               boutonValider,
             ],

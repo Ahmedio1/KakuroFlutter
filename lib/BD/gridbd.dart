@@ -16,7 +16,7 @@ class GridBD {
         'estSelectionee': grille.cases[i].estSelectionee,
         'valeur': grille.cases[i].valeur,
         'infos': grille.cases[i].infos,
-      };
+      } ;
       dataList.add(data);
     }
 
