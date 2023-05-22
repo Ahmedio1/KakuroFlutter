@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/constantes.dart';
 
@@ -6,8 +7,18 @@ import 'pop_up_taille/btn_6.dart';
 import 'pop_up_taille/btn_8.dart';
 
 class BtnJouer extends StatelessWidget {
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
   const BtnJouer({
     super.key,
+    required this.updateTheme,
+    required this.player,
+    required this.isNightMode,
+    required this.initialVolume,
+    required this.updateVolume,
   });
 
   @override
@@ -34,12 +45,30 @@ class BtnJouer extends StatelessWidget {
               Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Btn4(),
+                  children: [
+                    Btn4(
+                      updateTheme: updateTheme,
+                      player: player,
+                      isNightMode: isNightMode,
+                      initialVolume: initialVolume,
+                      updateVolume: updateVolume,
+                    ),
                     SizedBox(height: 10),
-                    Btn6(),
+                    Btn6(
+                      updateTheme: updateTheme,
+                      player: player,
+                      isNightMode: isNightMode,
+                      initialVolume: initialVolume,
+                      updateVolume: updateVolume,
+                    ),
                     SizedBox(height: 10),
-                    Btn8(),
+                    Btn8(
+                      updateTheme: updateTheme,
+                      player: player,
+                      isNightMode: isNightMode,
+                      initialVolume: initialVolume,
+                      updateVolume: updateVolume,
+                    ),
                     SizedBox(height: 10),
                   ],
                 ),

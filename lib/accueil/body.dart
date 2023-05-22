@@ -49,7 +49,13 @@ class Body extends StatelessWidget {
                             900)), //900 = hauteur de l'écran de base avec lequel j'ai travaillé : galaxy A52S
                     const TitleAccueil(),
                     SizedBox(height: (150 * hauteurEcran / 900)),
-                    const BtnJouer(),
+                    BtnJouer(
+                      updateTheme: updateTheme,
+                      player: player,
+                      isNightMode: isNightMode,
+                      initialVolume: initialVolume,
+                      updateVolume: updateVolume,
+                    ),
                     SizedBox(height: (20 * hauteurEcran / 900)),
                     const BtnRegles(),
                   ],

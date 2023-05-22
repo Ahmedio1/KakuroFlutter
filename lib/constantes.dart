@@ -1,4 +1,4 @@
-//Importation des packages : 
+//Importation des packages :
 import 'package:flutter/material.dart';
 
 TextStyle bullesTexte(BuildContext context) {
@@ -28,7 +28,6 @@ TextStyle bullesBleuCielTexte = const TextStyle(
   fontFamily: 'Inter',
 );
 
-
 TextStyle kakuroCase = const TextStyle(
   color: Color(0xFF000000),
   fontSize: 18,
@@ -53,47 +52,48 @@ TextStyle kakuroPad(BuildContext context) {
   );
 }
 
-//Couleurs et styles pour le thème sombre : 
+//Couleurs et styles pour le thème sombre :
 ThemeData themeSombre = ThemeData(
   colorScheme: const ColorScheme(
+      primary: Color(0xFF3D5467), //bleu foncé pour les bulles principales
+      secondary: Color(0xFFA5CBE6), //bleu clair
+      error: Color(0xFFF0C3C3), //rouge pour les erreurs
+      tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
 
-    primary:  Color(0xFF3D5467), //bleu foncé pour les bulles principales
-    secondary:  Color(0xFFA5CBE6), //bleu clair 
-    error:  Color(0xFFF0C3C3), //rouge pour les erreurs
-    tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
+      surface: Color(
+          0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
+      background: Color(0xFFFFFFFF), //blanc pour les bulles secondaires
 
-    surface:  Color(0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
-    background:  Color(0xFFFFFFFF), //blanc pour les bulles secondaires
-
-
-    onPrimary: Colors.white, //blanc pour les textes en terme sombre
-    onSecondary: Color(0xFFA5CBE6), //bleu clair pour les boutons de navigation
-    onBackground: Colors.white, //blanc pour les fonds de barre de navigation
-    onError: Colors.black, //noir 
-    onSurface: Colors.black, //noir
-    brightness: Brightness.dark),
-
-  
+      onPrimary: Colors.white, //blanc pour les textes en terme sombre
+      onSecondary:
+          Color(0xFFA5CBE6), //bleu clair pour les boutons de navigation
+      onBackground: Colors.white, //blanc pour les fonds de barre de navigation
+      onError: Colors.black, //noir
+      onSurface: Colors.black, //noir
+      brightness: Brightness.dark),
 );
 
 //Couleurs et styles pour le thème clair :
 // Couleurs et styles pour le thème clair
 ThemeData themeClair = ThemeData(
   colorScheme: const ColorScheme(
-    primary: Color(0xFFFFFFFF), // bleu foncé pour les bulles principales
-    secondary: Color(0xFFA5CBE6), // bleu clair
-    error: Color(0xFFF0C3C3), // rouge pour les erreurs
-    tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
+      primary: Color(0xFFFFFFFF), // bleu foncé pour les bulles principales
+      secondary: Color(0xFFA5CBE6), // bleu clair
+      error: Color(0xFFF0C3C3), // rouge pour les erreurs
+      tertiary: Color(0xFFD9D9D9), // gris clair pour cases bloquées
 
-    surface:  Color(0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
-    background: Color(0xFF3D5467), // bleu foncé pour les bulles secondaires
+      surface: Color(
+          0xFF436C7C), //bleu medium pour le triangle de droite dans le Kakuro
+      background: Color(0xFF3D5467), // bleu foncé pour les bulles secondaires
 
-    onPrimary: Color(0xFF3D5467), // On écrit en bleu foncé
-    onSecondary: Color(0xFF3D5467), // bleu foncé pour les boutons de navigation
-    onBackground: Color(0xFFD9D9D9), // gris clair pour les fonds de barre de navigation
-    onError: Colors.black, // noir
-    onSurface: Colors.black, // noir
-    brightness: Brightness.light),
+      onPrimary: Color(0xFF3D5467), // On écrit en bleu foncé
+      onSecondary:
+          Color(0xFF3D5467), // bleu foncé pour les boutons de navigation
+      onBackground:
+          Color(0xFFD9D9D9), // gris clair pour les fonds de barre de navigation
+      onError: Colors.black, // noir
+      onSurface: Colors.black, // noir
+      brightness: Brightness.light),
 );
 
 num largeurEcran(BuildContext context) {
@@ -114,7 +114,9 @@ double responsiveFontSize(BuildContext context, double baseFontSize) {
   double referenceHeight = 412;
 
   // Calculez la taille de police proportionnelle
-  double responsiveSize = baseFontSize * (screenWidth / referenceWidth + screenHeight / referenceHeight) / 2;
+  double responsiveSize = baseFontSize *
+      (screenWidth / referenceWidth + screenHeight / referenceHeight) /
+      2;
 
   return responsiveSize;
 }
