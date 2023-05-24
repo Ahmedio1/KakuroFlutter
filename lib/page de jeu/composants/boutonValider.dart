@@ -45,7 +45,6 @@ class _BoutonValiderState extends State<BoutonValider> {
         }
       } else {
         score = score - 500;
-        print(score);
       }
       nbPoints = score;
       timerMade = timerValue;
