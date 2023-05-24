@@ -5,6 +5,7 @@ import 'package:kakuro/BD/userbd.dart';
 
 import '../../constantes.dart';
 import '../../Classe/userclass.dart';
+import 'pop_up_settings/deconnexion.dart';
 import 'pop_up_profil/btn_points.dart';
 import 'pop_up_profil/btn_pseudo.dart';
 
@@ -66,6 +67,7 @@ class BtnProfil extends StatelessWidget {
                       SizedBox(height: 15),
                       BtnPoints(),
                       SizedBox(height: 20),
+                      if (AuthService().isConnected()) Deconnexion(),
                     ],
                   ),
                 ],
