@@ -45,7 +45,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
 
     
 
-  
+  //Test Izaak grille 4*4
     /*grille = Grille(
         4, //Taille
         [
@@ -68,7 +68,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
         ],
         false);*/
 
-      //Utiliser ce code pour l'ajout d'une grille dans la base de données : 
+      //Utiliser ce code pour l'ajout d'une grille 6*6 dans la base de données : 
       /*
       grille=Grille(
         6,
@@ -148,10 +148,10 @@ class _PageDeJeuState extends State<PageDeJeu> {
               constraints: const BoxConstraints.expand()),
           Column(
             children: [
-              SizedBox(height: 0.2 * largeurEcran(context)),
-              grille,
-              SizedBox(height: 0.1 * largeurEcran(context)),
-              Expanded(child: Container(child: pad)),
+              SizedBox(height: 0.2 * MediaQuery.of(context).size.width), // Utilisation de la largeur de l'écran comme hauteur relative
+              grille, // Utilisation d'un widget Expanded pour prendre tout l'espace disponible
+              SizedBox(height: 0.1 * MediaQuery.of(context).size.width), // Utilisation de la largeur de l'écran comme hauteur relative
+              Expanded(child: Container(child: pad)), // Utilisation d'un widget Expanded pour prendre tout l'espace disponible
               boutonValider,
             ],
           )
