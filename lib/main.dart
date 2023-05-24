@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakuro/BD/gridbd.dart';
 import 'package:kakuro/constantes.dart';
 import 'accueil/body.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -40,7 +41,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     player.setVolume(volume);
     player.play(AssetSource('wiisportstheme.mp3'));
     player.setReleaseMode(ReleaseMode.loop);
-    
+
     // Add lifecycle observer and pass the player
     WidgetsBinding.instance.addObserver(_Handler(player: player));
   }
@@ -84,20 +85,21 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   } //Update volume est un callback qui permet de mettre à jour le volume
 }
 
- class _Handler extends WidgetsBindingObserver {
-   final AudioPlayer player;
+class _Handler extends WidgetsBindingObserver {
+  final AudioPlayer player;
 
-   _Handler({required this.player});
+  _Handler({required this.player});
 
-    @override
-    void didChangeAppLifecycleState(AppLifecycleState state) {
-      if (state == AppLifecycleState.resumed) {
-         player.resume(); // Audio player is a custom class with resume and pause static methods
-       } else {
-         player.pause();
-       }
-     }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      player
+          .resume(); // Audio player is a custom class with resume and pause static methods
+    } else {
+      player.pause();
+    }
   }
+}
 
 
 /*

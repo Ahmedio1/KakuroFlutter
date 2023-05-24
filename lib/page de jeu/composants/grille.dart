@@ -21,6 +21,7 @@ class Grille extends StatefulWidget {
 class _GrilleState extends State<Grille> {
   late Timer _timer;
   late int lastIndex = 1;
+
   // * Getters
   int getTaille() {
     return this.widget.taille;
@@ -89,7 +90,7 @@ class _GrilleState extends State<Grille> {
             final c = widget.cases[indexGrille];
 
             // ! Case non jouable
-            if (c.estBloquee == true) {
+            if (c.estBloquee == true && c.valeur == 0) {
               return Container(
                 decoration: BoxDecoration(
                     color: themeSombre.colorScheme.tertiary,
@@ -98,6 +99,23 @@ class _GrilleState extends State<Grille> {
               );
 
               // ! Case informative
+            } else if (c.estBloquee == true && c.valeur != 0) {
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  color: c.estSelectionee
+                      ? themeSombre.colorScheme.tertiary //selectionee
+                      : themeSombre.colorScheme.tertiary, //non selectionee
+                ),
+                child: Center(
+                  child: c.valeur == 0
+                      ? const Text("")
+                      : Text(
+                          c.getValeur().toString(),
+                          style: kakuroCase,
+                        ),
+                ),
+              );
             } else if (c.infos[0] != 0 || c.infos[1] != 0) {
               return Stack(children: [
                 Container(
@@ -134,6 +152,7 @@ class _GrilleState extends State<Grille> {
                   onPressed: () {
                     setState(() {
                       selectionnerCase(indexGrille);
+                      print(c.estBloquee.toString());
                     });
                   },
                   style: ButtonStyle(

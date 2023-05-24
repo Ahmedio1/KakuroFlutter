@@ -146,4 +146,21 @@ class UserBD {
       print("An error occurred: $e");
     }
   }
+
+  Future<void> updateUserPoints(String uid, int pointsPlus) async {
+    try {
+      CollectionReference userCollection = firestore.collection('User');
+
+      QuerySnapshot querySnapshot =
+          await userCollection.where('uid', isEqualTo: uid).get();
+
+      DocumentSnapshot userDoc = querySnapshot.docs.first;
+
+      int points = userDoc.get('points');
+
+      userCollection.doc(userDoc.id).update({'points': points + pointsPlus});
+    } catch (e) {
+      print("An error occurred: $e");
+    }
+  }
 }
