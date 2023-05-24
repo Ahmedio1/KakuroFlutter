@@ -45,7 +45,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
 
     
 
-  
+  //Test Izaak grille 4*4
     /*grille = Grille(
         4, //Taille
         [
@@ -68,7 +68,7 @@ class _PageDeJeuState extends State<PageDeJeu> {
         ],
         false);*/
 
-      //Utiliser ce code pour l'ajout d'une grille dans la base de données : 
+      //Utiliser ce code pour l'ajout d'une grille 6*6 dans la base de données : 
       /*
       grille=Grille(
         6,
