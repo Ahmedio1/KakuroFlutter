@@ -44,12 +44,13 @@ class _BoutonValiderState extends State<BoutonValider> {
           score = 0;
         }
       } else {
-        score = -500;
+        score = score - 500;
+        print(score);
       }
       nbPoints = score;
       timerMade = timerValue;
       final User? firebaseUser = FirebaseAuth.instance.currentUser;
-      if (firebaseUser != null && isVerif) {
+      if (firebaseUser != null) {
         UserBD().updateUserPoints(firebaseUser.uid, score);
       }
     }
