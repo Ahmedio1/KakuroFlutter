@@ -77,7 +77,7 @@ class _BtnClassementState extends State<BtnClassement> {
                       return Container(
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.background,
                           borderRadius: BorderRadius.circular(35),
                         ),
                         child: ListTile(
