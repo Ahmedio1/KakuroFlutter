@@ -206,6 +206,7 @@ class _BoutonValiderState extends State<BoutonValider> {
           if (isVerif) {
             showDialog(
               context: context,
+              barrierDismissible: false,
               builder: (BuildContext context) {
                 return AlertDialog(
                   backgroundColor: Theme.of(context).colorScheme.primary,
@@ -236,22 +237,34 @@ class _BoutonValiderState extends State<BoutonValider> {
                   actions: [
                     TextButton(
                       onPressed: () {
-                        Navigator.popUntil(context, (route) => route.isFirst);
                         Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Body(
-                                  updateTheme: updateTheme,
-                                  player: player,
-                                  isNightMode: isNightMode,
-                                  initialVolume: initialVolume,
-                                  updateVolume: (volume) {
-                                    updateVolume(volume);
-                                  }), // Remplacez AccueilPage par le widget de votre page d'accueil
-                            )); // Ferme la pop-up
-                        // Retourne à la page d'accueil
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Body(
+                                updateTheme: updateTheme,
+                                player: player,
+                                isNightMode: isNightMode,
+                                initialVolume: initialVolume,
+                                updateVolume: (volume) {
+                                  updateVolume(volume);
+                                }),
+                          ),
+                        );
                       },
-                      child: Text('Fermer'),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 0.08 * largeurEcran(context),
+                          vertical: 0.03 * largeurEcran(context),
+                        ),
+                      ),
+                      child: Text(
+                        'Fermer',
+                        style: bullesTexte(context),
+                      ),
                     ),
                   ],
                 );
@@ -260,6 +273,7 @@ class _BoutonValiderState extends State<BoutonValider> {
           } else {
             showDialog(
               context: context,
+              barrierDismissible: false,
               builder: (BuildContext context) {
                 return AlertDialog(
                   backgroundColor: Theme.of(context).colorScheme.primary,
@@ -285,22 +299,34 @@ class _BoutonValiderState extends State<BoutonValider> {
                   actions: [
                     TextButton(
                       onPressed: () {
-                        Navigator.popUntil(context, (route) => route.isFirst);
                         Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Body(
-                                  updateTheme: updateTheme,
-                                  player: player,
-                                  isNightMode: isNightMode,
-                                  initialVolume: initialVolume,
-                                  updateVolume: (volume) {
-                                    updateVolume(volume);
-                                  }), // Remplacez AccueilPage par le widget de votre page d'accueil
-                            )); // Ferme la pop-up
-                        // Retourne à la page d'accueil
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Body(
+                                updateTheme: updateTheme,
+                                player: player,
+                                isNightMode: isNightMode,
+                                initialVolume: initialVolume,
+                                updateVolume: (volume) {
+                                  updateVolume(volume);
+                                }),
+                          ),
+                        );
                       },
-                      child: Text('Fermer'),
+                      style: TextButton.styleFrom(
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 0.08 * largeurEcran(context),
+                          vertical: 0.03 * largeurEcran(context),
+                        ),
+                      ),
+                      child: Text(
+                        'Fermer',
+                        style: bullesTexte(context),
+                      ),
                     ),
                   ],
                 );
