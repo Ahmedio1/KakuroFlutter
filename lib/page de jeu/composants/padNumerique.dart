@@ -45,7 +45,7 @@ class _MyPadState extends State<MyPad> {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         crossAxisCount: 6,
-        children: List.generate(12, (indexPad) {
+        children: List.generate(11, (indexPad) {
           if (indexPad < 9) {
             return Container(
                 width: 0.1 * largeurEcran(context),
@@ -54,7 +54,8 @@ class _MyPadState extends State<MyPad> {
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
-                        color: Theme.of(context).colorScheme.background, width: 2)),
+                        color: Theme.of(context).colorScheme.background,
+                        width: 2)),
                 child: Center(
                     child: TextButton(
                         onPressed: () {
@@ -67,11 +68,11 @@ class _MyPadState extends State<MyPad> {
                           style: kakuroPad(context),
                         ))));
           } else if (indexPad == 9) {
-            return indice;
+            return reset;
           } else if (indexPad == 10) {
             return gomme;
           } else {
-            return reset;
+            return indice;
           }
         }),
       ),
@@ -101,7 +102,8 @@ class _GommeState extends State<Gomme> {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
+        border: Border.all(
+            color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(
@@ -163,7 +165,8 @@ class _ResetState extends State<Reset> {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
+        border: Border.all(
+            color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(
@@ -210,18 +213,14 @@ class _IndiceState extends State<Indice> {
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Theme.of(context).colorScheme.background, width: 2),
+        border: Border.all(
+            color: Theme.of(context).colorScheme.background, width: 2),
       ),
       child: Stack(children: [
         Center(
           child: Container(
             width: 0.1 * largeurEcran(context),
             height: 0.1 * largeurEcran(context),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/indice.png"),
-              ),
-            ),
           ),
         ),
         ElevatedButton(
