@@ -209,7 +209,12 @@ class _BoutonValiderState extends State<BoutonValider> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                 Body()), // Remplacez AccueilPage par le widget de votre page d'accueil
+                                 Body(updateTheme: updateTheme,
+                                      player: player,
+                                      isNightMode: isNightMode,
+                                      initialVolume: volume,
+                                      updateVolume: (double volume) =>
+                                      setState(() => this.volume = volume)), // Remplacez AccueilPage par le widget de votre page d'accueil
                         );*/ // Ferme la pop-up
                         // Retourne à la page d'accueil
                       },
@@ -252,7 +257,12 @@ class _BoutonValiderState extends State<BoutonValider> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                 Body()), // Remplacez AccueilPage par le widget de votre page d'accueil
+                                 Body(updateTheme: updateTheme,
+                                      player: player,
+                                      isNightMode: isNightMode,
+                                      initialVolume: volume,
+                                      updateVolume: (double volume) =>
+                                      setState(() => this.volume = volume)), // Remplacez AccueilPage par le widget de votre page d'accueil
                         );*/ // Ferme la pop-up
                         // Retourne à la page d'accueil
                       },
