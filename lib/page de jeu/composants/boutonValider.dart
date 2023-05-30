@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ffi';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/BD/userbd.dart';
@@ -13,20 +14,51 @@ import 'case.dart';
 import 'grille.dart';
 
 class BoutonValider extends StatefulWidget {
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
   final int Function() timerValueCallback;
   final Grille grille;
 
   const BoutonValider(this.grille,
-      {super.key, required this.timerValueCallback});
+      {super.key,
+      required this.timerValueCallback,
+      required this.updateTheme,
+      required this.player,
+      required this.isNightMode,
+      required this.initialVolume,
+      required this.updateVolume});
 
   @override
-  _BoutonValiderState createState() => _BoutonValiderState();
+  _BoutonValiderState createState() => _BoutonValiderState(
+      updateTheme: updateTheme,
+      player: player,
+      isNightMode: isNightMode,
+      initialVolume: initialVolume,
+      updateVolume: (volume) {
+        updateVolume(volume);
+      });
 }
 
 class _BoutonValiderState extends State<BoutonValider> {
+  final void Function(bool) updateTheme;
+  final AudioPlayer player;
+  final bool isNightMode;
+  final double initialVolume;
+  final void Function(double) updateVolume;
+
   bool isVerif = true;
   int timerMade = 0;
   int nbPoints = 0;
+
+  _BoutonValiderState(
+      {required this.updateTheme,
+      required this.player,
+      required this.isNightMode,
+      required this.initialVolume,
+      required this.updateVolume});
 
   void calculerPoints(int timerValue, int difficulty, bool isVerif) {
     // TODO: Calculate points based on timer value and difficulty
@@ -205,17 +237,18 @@ class _BoutonValiderState extends State<BoutonValider> {
                     TextButton(
                       onPressed: () {
                         Navigator.popUntil(context, (route) => route.isFirst);
-                        /*Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                 Body(updateTheme: updateTheme,
-                                      player: player,
-                                      isNightMode: isNightMode,
-                                      initialVolume: volume,
-                                      updateVolume: (double volume) =>
-                                      setState(() => this.volume = volume)), // Remplacez AccueilPage par le widget de votre page d'accueil
-                        );*/ // Ferme la pop-up
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Body(
+                                  updateTheme: updateTheme,
+                                  player: player,
+                                  isNightMode: isNightMode,
+                                  initialVolume: initialVolume,
+                                  updateVolume: (volume) {
+                                    updateVolume(volume);
+                                  }), // Remplacez AccueilPage par le widget de votre page d'accueil
+                            )); // Ferme la pop-up
                         // Retourne à la page d'accueil
                       },
                       child: Text('Fermer'),
@@ -253,17 +286,18 @@ class _BoutonValiderState extends State<BoutonValider> {
                     TextButton(
                       onPressed: () {
                         Navigator.popUntil(context, (route) => route.isFirst);
-                        /*Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                 Body(updateTheme: updateTheme,
-                                      player: player,
-                                      isNightMode: isNightMode,
-                                      initialVolume: volume,
-                                      updateVolume: (double volume) =>
-                                      setState(() => this.volume = volume)), // Remplacez AccueilPage par le widget de votre page d'accueil
-                        );*/ // Ferme la pop-up
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Body(
+                                  updateTheme: updateTheme,
+                                  player: player,
+                                  isNightMode: isNightMode,
+                                  initialVolume: initialVolume,
+                                  updateVolume: (volume) {
+                                    updateVolume(volume);
+                                  }), // Remplacez AccueilPage par le widget de votre page d'accueil
+                            )); // Ferme la pop-up
                         // Retourne à la page d'accueil
                       },
                       child: Text('Fermer'),

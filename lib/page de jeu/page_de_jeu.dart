@@ -75,6 +75,11 @@ class _PageDeJeuState extends State<PageDeJeu> {
       grille,
       timerValueCallback: () =>
           boutonValiderTimerValue, // Pass the timer value to BoutonValider
+      updateTheme: widget.updateTheme,
+      player: widget.player,
+      isNightMode: widget.isNightMode,
+      initialVolume: widget.initialVolume,
+      updateVolume: widget.updateVolume,
     );
 
     return Scaffold(
