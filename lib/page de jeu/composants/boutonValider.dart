@@ -297,35 +297,38 @@ class _BoutonValiderState extends State<BoutonValider> {
                     ],
                   ),
                   actions: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Body(
-                                updateTheme: updateTheme,
-                                player: player,
-                                isNightMode: isNightMode,
-                                initialVolume: initialVolume,
-                                updateVolume: (volume) {
-                                  updateVolume(volume);
-                                }),
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Body(
+                                  updateTheme: updateTheme,
+                                  player: player,
+                                  isNightMode: isNightMode,
+                                  initialVolume: initialVolume,
+                                  updateVolume: (volume) {
+                                    updateVolume(volume);
+                                  }),
+                            ),
+                          );
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
                           ),
-                        );
-                      },
-                      style: TextButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 0.08 * largeurEcran(context),
+                            vertical: 0.03 * largeurEcran(context),
+                          ),
                         ),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 0.08 * largeurEcran(context),
-                          vertical: 0.03 * largeurEcran(context),
+                        child: Text(
+                          'Fermer',
+                          style: bullesTexte(context),
                         ),
-                      ),
-                      child: Text(
-                        'Fermer',
-                        style: bullesTexte(context),
                       ),
                     ),
                   ],
