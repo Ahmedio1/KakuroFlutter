@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:kakuro/Classe/case.dart';
 import 'package:kakuro/page%20de%20jeu/composants/padNumerique.dart';
 
 import '../../constantes.dart';
-import 'case.dart';
 
 class Grille extends StatefulWidget {
   int taille;

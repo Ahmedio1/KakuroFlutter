@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:kakuro/page%20de%20jeu/composants/grille.dart';
+import 'package:kakuro/Classe/grille.dart';
 import '../../constantes.dart';
 import '../page_de_jeu.dart';
 

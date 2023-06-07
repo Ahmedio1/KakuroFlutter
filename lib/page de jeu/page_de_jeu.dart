@@ -2,11 +2,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/BD/gridbd.dart';
 import 'package:kakuro/page%20de%20jeu/composants/boutonValider.dart';
-import 'package:kakuro/page%20de%20jeu/composants/case.dart';
+import 'package:kakuro/Classe/case.dart';
+import 'package:kakuro/Classe/grille.dart';
 
 import '../constantes.dart';
 import 'composants/Timer.dart';
-import 'composants/grille.dart';
+
 import 'composants/appBar.dart';
 import 'composants/padNumerique.dart';
 

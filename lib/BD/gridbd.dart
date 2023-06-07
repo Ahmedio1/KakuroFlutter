@@ -1,9 +1,8 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../page de jeu/composants/case.dart';
-import '../page de jeu/composants/grille.dart';
+import 'package:kakuro/Classe/case.dart';
+import 'package:kakuro/Classe/grille.dart';
 
 class GridBD {
   FirebaseFirestore firestore = FirebaseFirestore.instance;

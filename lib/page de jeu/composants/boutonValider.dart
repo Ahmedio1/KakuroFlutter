@@ -10,8 +10,8 @@ import 'package:kakuro/page%20de%20jeu/composants/Timer.dart';
 import 'package:kakuro/page%20de%20jeu/composants/appBar.dart';
 import '../../auth/googleSignIn.dart';
 import '../../constantes.dart';
-import 'case.dart';
-import 'grille.dart';
+import 'package:kakuro/Classe/case.dart';
+import 'package:kakuro/Classe/grille.dart';
 
 class BoutonValider extends StatefulWidget {
   final void Function(bool) updateTheme;

@@ -1,8 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:kakuro/auth/googleSignIn.dart';
-import 'package:kakuro/nightmode.dart';
-import 'package:kakuro/volume.dart';
+import 'package:kakuro/constantes.dart';
+import 'package:kakuro/accueil/components/nightmode.dart';
+import 'package:kakuro/accueil/components/volume.dart';
 
 import '../../constantes.dart';
 import 'pop_up_settings/deconnexion.dart';
